@@ -303,6 +303,36 @@
   }
   #video-close-btn:hover { color: #FFBE00; border-color: #FFBE00; }
 
+  @media (max-width: 767px) {
+    .container { padding: 0 20px; }
+
+    #amenities-wrap.row { flex-direction: column; }
+    #amenities-wrap .col-9, #amenities-wrap .col-3 { flex: 0 0 100%; max-width: 100%; }
+    #amenities-wrap .col-3 { justify-content: flex-start; margin-top: 20px; }
+    .am-title { white-space: normal; }
+
+    #screen8 .row { flex-direction: column; min-height: 0; }
+    #screen8 .row .col-8, #screen8 .row .col-4 { flex: 0 0 100%; max-width: 100%; }
+    #contact-map { min-height: 220px; margin-bottom: 24px; }
+    #contact-info { padding-left: 0; }
+
+    #houses-grid .col-4 { flex: 0 0 50%; max-width: 50%; margin-bottom: 16px; }
+
+    .modal-inner { padding: 40px 20px 50px; gap: 24px; }
+
+    #video-modal-inner { width: 90vw; min-width: 0; max-width: 480px; }
+    #video-close-btn { top: -40px; }
+
+    .hdr-left { flex-wrap: wrap; row-gap: 6px; }
+    .chan-title { white-space: normal; }
+
+    #footer-top { gap: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    #houses-grid .col-4 { flex: 0 0 100%; max-width: 100%; }
+  }
+
 </style>
 </head>
 <body>
@@ -900,8 +930,15 @@
   var track = document.getElementById('feat-track');
   if (!viewport || !track) return;
   var cards = track.querySelectorAll('.feat-card');
-  var visibleCount = 6;
   var gap = 14;
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w <= 480) return 2;
+    if (w <= 767) return 3;
+    if (w <= 1024) return 4;
+    return 6;
+  }
+  var visibleCount = getVisibleCount();
   var setLength = cards.length / 2;
   var setWidth = 0;
   var pos = 0;
@@ -910,6 +947,7 @@
   var speed = 36;
 
   function layout() {
+    visibleCount = getVisibleCount();
     var vw = viewport.getBoundingClientRect().width;
     var cardWidth = (vw - gap * (visibleCount - 1)) / visibleCount;
     cards.forEach(function (c) { c.style.width = cardWidth + 'px'; });
@@ -942,8 +980,15 @@
   var track = document.getElementById('chan-track');
   if (!viewport || !track) return;
   var cards = track.querySelectorAll('.chan-card');
-  var visibleCount = 4;
   var gap = 14;
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w <= 480) return 1;
+    if (w <= 767) return 2;
+    if (w <= 1024) return 3;
+    return 4;
+  }
+  var visibleCount = getVisibleCount();
   var setLength = cards.length / 2;
   var setWidth = 0;
   var pos = 0;
@@ -952,6 +997,7 @@
   var speed = 34;
 
   function layout() {
+    visibleCount = getVisibleCount();
     var vw = viewport.getBoundingClientRect().width;
     var cardWidth = (vw - gap * (visibleCount - 1)) / visibleCount;
     cards.forEach(function (c) {
