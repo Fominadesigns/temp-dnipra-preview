@@ -147,6 +147,7 @@
   .amenity-row img { width: 38px; height: 38px; flex: none; margin-top: 0; }
   .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(12px, calc(10.154px + 0.2404vw), 14px); line-height: 1.5; color: #fff; }
   #photo-slider { position: relative; overflow: hidden; border-radius: 0; flex: none; }
+  #amenities-title-top { display: none; }
   .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
   .slide-img.active { opacity: 1; }
   .slide-arrow {
@@ -161,6 +162,17 @@
   .slide-dot { width: 7px; height: 7px; border-radius: 0; background: rgba(255,255,255,0.4); }
   .slide-dot.active { background: #FFBE00; }
   @media (max-width: 860px) { #amenities-wrap { grid-template-columns: 1fr; } }
+  @media (max-width: 1024px) {
+    #amenities-title-top { display: block; text-align: center; margin-bottom: 22px; }
+    #amenities-title-top .am-desc { max-width: 640px; margin: 10px auto 0; }
+    #amenities-card .am-title, #amenities-card .am-desc { display: none; }
+    #amenities-card { padding: 24px; justify-content: center; }
+    #amenities-wrap .col-9 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+    #amenities-wrap .col-3 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  }
+  @media (max-width: 480px) {
+    #amenities-grid { grid-template-columns: 1fr; }
+  }
 
   .house-card { cursor: pointer; transition: transform 0.25s ease; }
   .house-card:hover { transform: translateY(-4px); }
@@ -305,9 +317,6 @@
   @media (max-width: 767px) {
     .container { padding: 0 20px; }
 
-    #amenities-wrap.row { flex-direction: column; }
-    #amenities-wrap .col-9, #amenities-wrap .col-3 { flex: 0 0 100%; max-width: 100%; }
-    #amenities-wrap .col-3 { justify-content: flex-start; margin-top: 20px; }
     .am-title { white-space: normal; }
 
     #screen8 .row { flex-direction: column; min-height: 0; }
@@ -509,6 +518,10 @@
 
 <div id="screen4">
   <div id="amenities-wrap" class="container">
+  <div id="amenities-title-top">
+    <div class="am-title">Все необхідне для комфортного відпочинку</div>
+    <div class="am-desc">Відпочивайте у сучасних будиночках серед зелені, де кожна деталь продумана для вашого комфорту</div>
+  </div>
   <div class="row" style="width:100%">
     <div class="col-9">
     <div id="amenities-card">
@@ -912,6 +925,9 @@
   fitBigQuote();
   window.addEventListener('resize', fitBigQuote);
   window.addEventListener('load', fitBigQuote);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitBigQuote);
+  }
 })();
 
 (function () {
@@ -919,10 +935,16 @@
   var slider = document.getElementById('photo-slider');
   function syncSliderSize() {
     if (!card || !slider) return;
-    var h = card.getBoundingClientRect().height;
-    if (h > 0) {
-      slider.style.width = h + 'px';
-      slider.style.height = h + 'px';
+    if (window.innerWidth <= 1024) {
+      slider.style.width = '';
+      var w = slider.getBoundingClientRect().width;
+      if (w > 0) slider.style.height = w + 'px';
+    } else {
+      var h = card.getBoundingClientRect().height;
+      if (h > 0) {
+        slider.style.width = h + 'px';
+        slider.style.height = h + 'px';
+      }
     }
   }
   syncSliderSize();
