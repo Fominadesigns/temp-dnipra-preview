@@ -181,6 +181,11 @@
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .amenity-row img { width: 37.5px; height: 37.5px; }
   }
+  @media (max-width: 1024px) and (min-height: 501px) and (max-height: 700px) and (orientation: landscape) {
+    #amenities-title-top { display: none; }
+    #amenities-card .am-title, #amenities-card .am-desc { display: block; }
+    .amenity-row img { width: 30px; height: 30px; }
+  }
   @media (max-width: 480px) {
     #amenities-grid { grid-template-columns: 1fr; }
   }
