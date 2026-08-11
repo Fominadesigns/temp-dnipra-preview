@@ -95,6 +95,8 @@
   header#site-header.show { transform: translateY(0); }
   .hdr-left { display: flex; gap: 28px; align-items: center; justify-self: start; }
   .hdr-item { display: flex; align-items: center; gap: 9px; color: #FFFFFF; font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: 13px; }
+  .hdr-item { text-decoration: none; transition: color 0.2s ease, opacity 0.2s ease; }
+  a.hdr-item:hover { color: #FFBE00; }
   .hdr-item img { width: 18px; height: 18px; display: block; }
   #header-logo-wrap { display: flex; align-items: center; height: 50px; justify-self: center; }
   #header-logo { height: 50px; width: auto; opacity: 0; }
@@ -149,8 +151,9 @@
   #text-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; }
   .hero-h { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(36px, calc(11.077px + 3.2452vw), 63px); line-height: 1.0; color: #fff; }
   .hero-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
-  .hero-p { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; max-width: 640px; margin: 12px auto 0; color: rgba(255,255,255,0.88); }
-  #hero-btn-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 18.2px; }
+  .hero-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; max-width: 640px; margin: 12px auto 0; color: rgba(255,255,255,0.88); }
+  #hero-btn-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18.2px; flex-wrap: wrap; }
+  #hero-btn-row .btn { text-decoration: none; }
   #hero-btn-row .btn { margin-top: 0; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   #hero-btn-row .btn-outline { font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   .hdr-right .btn { padding: 11.5px 24px; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
@@ -199,14 +202,14 @@
   #chan-text { text-align: center; }
   .chan-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; white-space: nowrap; }
   .chan-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
-  .chan-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; color: rgba(255,255,255,0.82); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .chan-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; }
   #chan-text .btn { margin-top: 28px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   #chan-viewport { width: 100%; overflow: hidden; margin-top: 60px; }
   #chan-track { display: flex; align-items: flex-start; gap: 14px; will-change: transform; }
   .chan-card { position: relative; flex: none; overflow: hidden; }
   .chan-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .feat-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(11.5px, calc(10.4px + 0.14vw), 13px); color: #fff; line-height: 1.3; margin-bottom: 8px; }
-  .feat-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(11.5px, calc(10.6px + 0.12vw), 12.5px); line-height: 1.45; color: rgba(255,255,255,0.65); }
+  .feat-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(13.8px, calc(12.48px + 0.168vw), 15.6px); color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .feat-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13.8px, calc(12.72px + 0.144vw), 15px); line-height: 1.45; color: rgba(255,255,255,0.65); }
 
   #screen4 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(80px, calc(15.385px + 8.4135vw), 150px); }
   #amenities-wrap.row { align-items: stretch; }
@@ -218,14 +221,14 @@
       linear-gradient(180deg, #053038 0%, #04222a 100%);
     border: 1px solid rgba(255,255,255,0.08); box-shadow: var(--sh-2); border-radius: 0; padding: 34px 34px; box-sizing: border-box; }
   .am-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(15px, calc(9.462px + 0.7212vw), 21px); color: #fff; line-height: 1.25; white-space: nowrap; }
-  .am-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(12px, calc(10.154px + 0.2404vw), 14px); line-height: 1.5; color: rgba(255,255,255,0.75); margin-top: 10px; margin-bottom: 26px; max-width: 480px; }
+  .am-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(14.4px, calc(12.185px + 0.2885vw), 16.8px); line-height: 1.5; color: rgba(255,255,255,0.75); margin-top: 10px; margin-bottom: 26px; max-width: 480px; }
   #amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
   .amenity-row { display: flex; align-items: center; gap: 14px; transition: transform var(--t-fast) var(--ease-out); }
   .amenity-row:hover { transform: translateX(3px); }
   .amenity-row img { transition: transform var(--t-fast) var(--ease-out); }
   .amenity-row:hover img { transform: scale(1.10); }
   .amenity-row img { width: 25px; height: 25px; flex: none; margin-top: 0; }
-  .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(10.944px, calc(9.257px + 0.219vw), 12.768px); line-height: 1.45; color: #fff; }
+  .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(13.13px, calc(11.108px + 0.263vw), 15.32px); line-height: 1.45; color: #fff; }
   #photo-slider { position: relative; overflow: hidden; border-radius: 0; flex: none; }
   #amenities-title-top { display: none; }
   .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
@@ -243,6 +246,10 @@
   .slide-dot.active { background: #FFBE00; }
   @media (max-width: 860px) { #amenities-wrap { grid-template-columns: 1fr; } }
   @media (max-width: 1024px) {
+    #hero-btn-row .btn, #hero-btn-row .btn-outline, .hdr-right .btn, #chan-text .btn, .modal-right .btn, #pool-inner .btn, #pet-inner .btn, .modal-btn-row .btn-outline {
+      font-size: clamp(13.8px, calc(12.2px + 0.2vw), 15.6px);
+      padding: 13.8px 29px;
+    }
     #amenities-title-top { display: block; text-align: center; margin-bottom: 22px; }
     #amenities-title-top .am-desc { max-width: 640px; margin: 10px auto 0; }
     #amenities-card .am-title, #amenities-card .am-desc { display: none; }
@@ -260,23 +267,23 @@
     #header-logo-wrap, #header-logo { height: 34px; }
     header#site-header { padding: 8px 20px; }
     #hero-btn-row .btn, #hero-btn-row .btn-outline, .hdr-right .btn, #chan-text .btn, .modal-right .btn, #pool-inner .btn, #pet-inner .btn {
-      font-size: 11.5px; padding: 10px 20px;
+      font-size: 13.8px; padding: 12px 24px;
     }
     #text-inner { padding: 16px 24px 5vh; }
     .hero-h { font-size: 30px; line-height: 1.1; }
     .hero-accent { font-size: 18px; margin-top: 6px; }
-    .hero-p { font-size: 12.5px; line-height: 1.35; margin-top: 10px; }
+    .hero-p { font-size: 14px; line-height: 1.4; margin-top: 10px; }
     #hero-btn-row { margin-top: 14px; }
     #amenities-title-top { display: none; }
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .amenity-row img { width: 30px; height: 30px; }
-    .amenity-row span { font-size: 12px; line-height: 1.3; }
+    .amenity-row span { font-size: 13.5px; line-height: 1.35; }
     #pool-inner { padding: 16px 24px 5vh; }
     .pool-h2 { font-size: 26px; }
-    .pool-p { font-size: 12.5px; line-height: 1.35; margin-top: 12px; }
+    .pool-p { font-size: 14px; line-height: 1.4; margin-top: 12px; }
     #pet-inner { padding: 16px 24px 5vh; }
     .pet-h2 { font-size: 26px; }
-    .pet-p { font-size: 12.5px; line-height: 1.35; margin-top: 12px; }
+    .pet-p { font-size: 14px; line-height: 1.4; margin-top: 12px; }
   }
   @media (max-width: 1024px) and (min-height: 501px) and (max-height: 700px) and (orientation: landscape) {
     #amenities-title-top { display: none; }
@@ -340,12 +347,12 @@
   .modal-right { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
   .modal-right-top {}
   .modal-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(17px, calc(12.385px + 0.6010vw), 22px); color: #fff; margin-bottom: 10px; }
-  .modal-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(12px, calc(10.154px + 0.2404vw), 14px); color: rgba(255,255,255,0.55); margin-bottom: 22px; }
-  .modal-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; color: rgba(255,255,255,0.82); }
+  .modal-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(14.4px, calc(12.185px + 0.2885vw), 16.8px); color: rgba(255,255,255,0.55); margin-bottom: 22px; }
+  .modal-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); }
   .modal-amenities { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; margin-top: 14px; }
   .modal-amenity-row { display: flex; align-items: center; gap: 12px; }
   .modal-amenity-row img { width: 32px; height: 32px; flex: none; }
-  .modal-amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); line-height: 0.98; color: #fff; }
+  .modal-amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); line-height: 0.98; color: #fff; }
   .modal-right .btn { padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); display: inline-flex; align-items: center; }
   .modal-btn-row { display: flex; align-items: center; gap: 14px; align-self: flex-start; margin-top: 24px; }
   @media (max-width: 860px) {
@@ -368,16 +375,26 @@
     background: #FFBE00; color: #12211f; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 13px;
     width: 34px; height: 34px; border-radius: 0; display: flex; align-items: center; justify-content: center;
   }
+  .house-cta {
+    display: none; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 14px; padding: 11px 18px;
+    font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: 0.04em;
+    color: #FFBE00; border: 1.5px solid rgba(255,190,0,0.55); background: rgba(255,190,0,0.07);
+  }
+  .house-cta svg { flex: none; }
+  @media (max-width: 1024px) {
+    .house-cta { display: flex; }
+  }
   .house-cap { padding: 20px 22px 24px; }
-  .house-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(14px, calc(11.231px + 0.3606vw), 17px); color: #fff; margin-bottom: 6px; }
-  .house-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); color: rgba(255,255,255,0.65); line-height: 1.4; }
+  .house-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: #fff; margin-bottom: 6px; }
+  .house-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); color: rgba(255,255,255,0.65); line-height: 1.4; }
 
   /* ===== ВІДГУКИ ===== */
   #screen10 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0; }
   #reviews-head { text-align: center; margin-bottom: clamp(32px, calc(11.538px + 2.6642vw), 54px); }
   .rev-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; }
   .rev-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
-  .rev-sub { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; color: rgba(255,255,255,0.82); margin: 18px auto 0; max-width: 640px; }
+  .rev-sub { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin: 18px auto 0; max-width: 640px; }
   #reviews-slider { position: relative; }
   #reviews-track {
     display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden;
@@ -398,8 +415,34 @@
   }
   .rev-card img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #fff; }
   .rev-card.zoomed {
-    transform: scale(1.5); z-index: 6; cursor: zoom-out;
+    transform: scale(1.8); z-index: 6; cursor: zoom-out;
     box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  }
+  /* Чани: збільшення фото при наведенні / дотику */
+  .chan-card { cursor: zoom-in; transition: transform 0.45s cubic-bezier(.2,.7,.26,1), box-shadow 0.45s ease; }
+  #chan-viewport { padding: 90px 0; margin-top: -30px; margin-bottom: -90px; }
+  @media (hover: hover) and (min-width: 1025px) {
+    .chan-card:hover { transform: scale(2); z-index: 6; box-shadow: 0 22px 54px rgba(0,0,0,0.55); }
+  }
+  #rev-lightbox {
+    position: fixed; inset: 0; z-index: 320; display: none;
+    align-items: center; justify-content: center; padding: 14px;
+    background: rgba(3,10,9,0.94); opacity: 0;
+    transition: opacity 0.28s ease; cursor: zoom-out;
+  }
+  #rev-lightbox.open { display: flex; }
+  #rev-lightbox.show { opacity: 1; }
+  #rev-lightbox img {
+    width: 100%; max-width: 720px; max-height: 92vh;
+    object-fit: contain; display: block; background: #fff;
+    transform: scale(0.94); transition: transform 0.3s cubic-bezier(.2,.7,.26,1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  }
+  #rev-lightbox.show img { transform: scale(1); }
+  #rev-lightbox-hint {
+    position: absolute; bottom: 18px; left: 0; right: 0; text-align: center;
+    font-family: 'Golos Text', sans-serif; font-size: 12.5px; color: rgba(255,255,255,0.6);
+    pointer-events: none;
   }
   .rev-arrow {
     position: absolute; top: calc(50% - 7px); transform: translateY(-50%);
@@ -436,7 +479,7 @@
   }
   #pet-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; max-width: 700px; margin: 0 auto; }
   .pet-h2 { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(28px, calc(9.538px + 2.4038vw), 48px); line-height: 1.15; color: #fff; }
-  .pet-p { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
+  .pet-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
   #pet-inner .btn { margin-top: 26px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
 
   #screen5 { position: relative; height: 100vh; min-height: 640px; overflow: hidden; z-index: 10; }
@@ -455,7 +498,7 @@
   }
   #pool-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; max-width: 640px; margin: 0 auto; }
   .pool-h2 { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(28px, calc(9.538px + 2.4038vw), 48px); line-height: 1.15; color: #fff; }
-  .pool-p { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
+  .pool-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
   #pool-inner .btn { margin-top: 26px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
 
 
@@ -482,13 +525,13 @@
   #contact-rows { margin-top: auto; }
   #screen8 .col-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
   #screen8 .col-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
-  .contact-eyebrow { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); color: #FFBE00; letter-spacing: 0.02em; }
+  .contact-eyebrow { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); color: #FFBE00; letter-spacing: 0.02em; }
   .contact-title { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(20px, calc(8.923px + 1.4423vw), 32px); line-height: 1.15; color: #fff; margin-top: 8px; }
   #contact-rows { margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
   .contact-row { display: flex; align-items: center; gap: 16px; }
   .contact-row .contact-icon { flex: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
   .contact-row .contact-icon svg, .contact-row .contact-icon img { width: 28px; height: 28px; display: block; object-fit: contain; }
-  .contact-row a, .contact-row span.contact-text { font-family: 'Golos Text', sans-serif; font-size: clamp(14px, calc(11.231px + 0.3606vw), 17px); color: rgba(255,255,255,0.92); text-decoration: none; }
+  .contact-row a, .contact-row span.contact-text { font-family: 'Golos Text', sans-serif; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: rgba(255,255,255,0.92); text-decoration: none; }
   .contact-row a:hover { color: #FFBE00; }
 
   #site-footer { position: relative; z-index: 9; background: #000000; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 0 30px; }
@@ -497,7 +540,7 @@
   #footer-logo-link:hover { opacity: 0.8; }
   #footer-logo { height: clamp(56px, calc(22.769px + 4.3269vw), 92px); width: auto; display: block; margin: 0 auto; }
   #footer-nav { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
-  #footer-nav a { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(11.5px, calc(9.654px + 0.2404vw), 13.5px); color: rgba(255,255,255,0.82); text-decoration: none; }
+  #footer-nav a { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(13.8px, calc(11.585px + 0.2885vw), 16.2px); color: rgba(255,255,255,0.82); text-decoration: none; }
   #footer-nav a { position: relative; transition: color var(--t-fast) var(--ease-out); }
   #footer-nav a::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
@@ -508,7 +551,7 @@
   #footer-nav a:hover::after { transform: scaleX(1); }
   .contact-row a { transition: color var(--t-fast) var(--ease-out); }
   #footer-bottom { display: flex; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; gap: 12px; padding-top: 22px; }
-  #footer-bottom .footer-copy { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); color: rgba(255,255,255,0.5); }
+  #footer-bottom .footer-copy { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); color: rgba(255,255,255,0.5); }
 
   #video-modal { position: fixed; inset: 0; z-index: 300; background: rgba(5,8,4,0.86); display: none; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
   #video-modal.open { display: flex; }
@@ -598,17 +641,18 @@
     #header-logo-wrap { justify-self: start; }
     #header-logo-wrap, #header-logo { height: 34px; }
     .hdr-right { justify-self: end; }
-    .hdr-right .btn { font-size: 9.5px; padding: 9px 13px; letter-spacing: 0.02em; }
+    .hdr-right .btn { font-size: 12.5px; padding: 11px 17px; letter-spacing: 0.02em; }
     .hdr-right .btn svg { width: 10px; height: 10px; }
 
     /* Головний екран */
     #text-inner { padding: 18px 18px 7vh; }
     .hero-h { font-size: 26px; line-height: 1.14; }
     .hero-accent { font-size: 17px; margin-top: 9px; }
-    .hero-p { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .hero-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .hero-p br { display: none; }
-    #hero-btn-row { margin-top: 22px; }
-    #hero-btn-row .btn, #hero-btn-row .btn-outline { font-size: 11px; padding: 13px 26px; }
+    #hero-btn-row { margin-top: 22px; flex-direction: column; gap: 12px; }
+    #hero-btn-row .btn { width: 100%; max-width: 320px; justify-content: center; }
+    #hero-btn-row .btn, #hero-btn-row .btn-outline { font-size: 14.5px; padding: 15.6px 31px; }
 
     /* Вертикальні відступи секцій */
     #screen3, #screen6 { padding: 70px 0; }
@@ -624,8 +668,8 @@
     .feat-card { padding: 20px 12px; }
     .feat-icon { height: 38px; margin-bottom: 12px; }
     .feat-icon img, .feat-icon svg { height: 38px; }
-    .feat-title { font-size: 12.5px; margin-bottom: 6px; }
-    .feat-desc { font-size: 11.5px; line-height: 1.3; }
+    .feat-title { font-size: 14.5px; margin-bottom: 6px; }
+    .feat-desc { font-size: 13.5px; line-height: 1.4; }
 
     /* Зручності — все в стовпчик */
     #amenities-title-top { display: none; }
@@ -634,10 +678,10 @@
     #amenities-card { padding: 24px 20px; }
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .am-title { font-size: 20px; line-height: 1.28; }
-    .am-desc { font-size: 13px; line-height: 1.45; margin-top: 10px; margin-bottom: 22px; }
+    .am-desc { font-size: 15.5px; line-height: 1.45; margin-top: 10px; margin-bottom: 22px; }
     #amenities-grid { grid-template-columns: 1fr; gap: 14px; }
     .amenity-row img { width: 28px; height: 28px; }
-    .amenity-row span { font-size: 12.5px; line-height: 1.35; }
+    .amenity-row span { font-size: 14.5px; line-height: 1.4; }
     .amenity-row span br { display: none; }
     #photo-slider { width: 100%; margin-top: 16px; }
     .slide-arrow { width: 34px; height: 34px; font-size: 19px; }
@@ -647,16 +691,16 @@
     /* Басейн */
     #pool-inner { padding: 18px 18px 7vh; }
     .pool-h2 { font-size: 24px; line-height: 1.22; }
-    .pool-p { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .pool-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .pool-p br { display: none; }
-    #pool-inner .btn { font-size: 11px; padding: 13px 26px; margin-top: 22px; }
+    #pool-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
 
     /* Pet-friendly */
     #pet-inner { padding: 18px 18px 7vh; }
     .pet-h2 { font-size: 24px; line-height: 1.22; }
-    .pet-p { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .pet-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .pet-p br { display: none; }
-    #pet-inner .btn { font-size: 11px; padding: 13px 26px; margin-top: 22px; }
+    #pet-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
 
     /* Будиночки — один стовпчик */
     #houses-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
@@ -664,13 +708,13 @@
     #houses-grid .col-4 { flex: none; max-width: none; padding: 0; margin-bottom: 0; }
     .house-cap { padding: 16px 18px 20px; }
     .house-title { font-size: 16px; }
-    .house-spec { font-size: 12.5px; line-height: 1.35; }
+    .house-spec { font-size: 14.5px; line-height: 1.4; }
 
     /* Чани */
     .chan-title { font-size: 22px; line-height: 1.26; }
     .chan-accent { font-size: 17px; }
-    .chan-desc { font-size: 13px; line-height: 1.45; margin-top: 14px; }
-    #chan-text .btn { font-size: 11px; padding: 13px 26px; margin-top: 22px; }
+    .chan-desc { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
+    #chan-text .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
     #chan-viewport { margin-top: 36px; }
 
     /* Карта і контакти */
@@ -680,23 +724,23 @@
     #contact-rows { gap: 12px; }
     .contact-row .contact-icon { width: 36px; height: 36px; }
     .contact-row .contact-icon svg, .contact-row .contact-icon img { width: 25px; height: 25px; }
-    .contact-row a, .contact-row span.contact-text { font-size: 14px; }
+    .contact-row a, .contact-row span.contact-text { font-size: 16px; }
 
     /* Відгуки */
     #screen10 { padding: 70px 0; }
     .rev-card { width: calc((100% - 10px) / 2); height: 190px; }
     .rev-title { font-size: 22px; line-height: 1.26; }
     .rev-accent { font-size: 17px; }
-    .rev-sub { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .rev-sub { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
 
     /* Футер */
     #site-footer { padding: 44px 0 24px; }
     #footer-top { gap: 20px; padding-bottom: 28px; }
     #footer-logo { height: 54px; }
     #footer-nav { gap: 14px 20px; }
-    #footer-nav a { font-size: 11.5px; }
+    #footer-nav a { font-size: 13.5px; }
     #footer-bottom { padding-top: 18px; }
-    #footer-bottom .footer-copy { font-size: 11px; }
+    #footer-bottom .footer-copy { font-size: 13px; }
 
     /* Модалка будиночка */
     .modal-inner { padding: 64px 18px 44px; gap: 20px; }
@@ -707,14 +751,14 @@
     .modal-thumbs { flex-direction: row; width: 100%; align-self: auto; overflow-x: auto; overflow-y: hidden; padding-right: 0; padding-bottom: 4px; }
     .modal-thumb { width: 70px; height: 54px; }
     .modal-title { font-size: 19px; }
-    .modal-spec { font-size: 12.5px; margin-bottom: 16px; }
-    .modal-desc { font-size: 13px; line-height: 1.45; }
+    .modal-spec { font-size: 14.5px; margin-bottom: 16px; }
+    .modal-desc { font-size: 15.5px; line-height: 1.45; }
     .modal-amenities { grid-template-columns: 1fr; gap: 12px; margin-top: 18px; }
     .modal-amenity-row img { width: 28px; height: 28px; }
-    .modal-amenity-row span { font-size: 12.5px; line-height: 1.35; }
+    .modal-amenity-row span { font-size: 14.5px; line-height: 1.4; }
     .modal-amenity-row span br { display: none; }
     .modal-btn-row { flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .modal-right .btn, .modal-btn-row .btn-outline { font-size: 11px; padding: 13px 22px; }
+    .modal-right .btn, .modal-btn-row .btn-outline { font-size: 14.5px; padding: 15.6px 26px; }
 
     /* Відео */
     #video-modal-inner { width: 92vw; min-width: 0; }
@@ -742,8 +786,8 @@
   </div>
   <header id="site-header">
     <div class="hdr-left">
-      <div class="hdr-item"><img src="images/98d5b8152ee0.png" alt="">Рецепція: +38 068 977 2777</div>
-      <div class="hdr-item"><img src="images/506ddad40847.png" alt="">Як дістатися</div>
+      <a class="hdr-item" href="tel:+380689772777"><img src="images/98d5b8152ee0.png" alt="">Рецепція: +38 068 977 2777</a>
+      <a class="hdr-item" href="#screen8"><img src="images/506ddad40847.png" alt="">Як дістатися</a>
     </div>
     <div id="header-logo-wrap"><img id="header-logo" src="images/8096c7828543.png" alt="Темп Дніпра"></div>
     <div class="hdr-right"><span class="btn btn-outline">ЗАБРОНЮВАТИ<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></div>
@@ -757,6 +801,7 @@
       <div class="hero-p">Відпочивайте у тиші серед природи: будиночки біля Дніпра<br>з власною кухнею, терасою та мангалом, великий басейн із лежаками<br>й лише 10 хвилин їзди від Києва</div>
       <div id="hero-btn-row">
         <span class="btn btn-primary">ЗАБРОНЮВАТИ<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        <a href="#screen6" class="btn btn-outline">ОБРАТИ БУДИНОЧОК<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -1199,6 +1244,32 @@
 </div>
 
 <script>
+/* Спільне вікно перегляду фото на весь екран (відгуки, чани) */
+(function () {
+  var lb = document.createElement('div');
+  lb.id = 'rev-lightbox';
+  lb.innerHTML = '<img alt=""><div id="rev-lightbox-hint">Торкніться будь-де, щоб закрити</div>';
+  document.body.appendChild(lb);
+  var img = lb.querySelector('img');
+  function open(src) {
+    if (!src) return;
+    img.src = src;
+    lb.classList.add('open');
+    requestAnimationFrame(function () { lb.classList.add('show'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(function () { lb.classList.remove('open'); }, 280);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  window.TDLightbox = { open: open, close: close };
+})();
+</script>
+
+<script>
 /* Індикатор прокрутки сторінки */
 (function () {
   var bar = document.getElementById('scroll-progress');
@@ -1278,8 +1349,16 @@
   function clearZoom(except) {
     cards.forEach(function (c) { if (c !== except) c.classList.remove('zoomed'); });
   }
+  function openLightbox(src) { if (window.TDLightbox) window.TDLightbox.open(src); }
+  function closeLightbox() { if (window.TDLightbox) window.TDLightbox.close(); }
+
   cards.forEach(function (card) {
     card.addEventListener('click', function () {
+      if (window.innerWidth <= 1024) {
+        var im = card.querySelector('img');
+        if (im) openLightbox(im.getAttribute('src'));
+        return;
+      }
       var on = card.classList.contains('zoomed');
       clearZoom(card);
       card.classList.toggle('zoomed', !on);
@@ -1610,6 +1689,17 @@
 
   viewport.addEventListener('mouseenter', function () { paused = true; });
   viewport.addEventListener('mouseleave', function () { paused = false; lastTs = null; });
+  viewport.addEventListener('touchend', function () { paused = false; lastTs = null; }, { passive: true });
+
+  /* На телефонах і планшетах — фото відкривається на весь екран */
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (window.innerWidth > 1024) return;
+      var im = card.querySelector('img');
+      if (im && window.TDLightbox) window.TDLightbox.open(im.getAttribute('src'));
+    });
+  });
+
 
   function tick(ts) {
     if (!paused && setWidth > 0) {
@@ -1705,10 +1795,46 @@
   }
   document.querySelector('.slide-arrow.prev').addEventListener('click', function () { show(idx - 1); });
   document.querySelector('.slide-arrow.next').addEventListener('click', function () { show(idx + 1); });
-  setInterval(function () { show(idx + 1); }, 5000);
+
+  /* Свайп пальцем ліворуч / праворуч */
+  var box = document.getElementById('photo-slider');
+  if (box) {
+    var sx = 0, sy = 0, moved = false, paused = false;
+    box.addEventListener('touchstart', function (e) {
+      var t = e.changedTouches[0];
+      sx = t.clientX; sy = t.clientY; moved = false; paused = true;
+    }, { passive: true });
+    box.addEventListener('touchmove', function () { moved = true; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx, dy = t.clientY - sy;
+      paused = false;
+      if (!moved) return;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        show(dx < 0 ? idx + 1 : idx - 1);
+      }
+    }, { passive: true });
+    box.addEventListener('mouseenter', function () { paused = true; });
+    box.addEventListener('mouseleave', function () { paused = false; });
+    setInterval(function () { if (!paused) show(idx + 1); }, 5000);
+  } else {
+    setInterval(function () { show(idx + 1); }, 5000);
+  }
 })();
 (function () {
   var HOUSES = {"1": {"title": "Будиночок №1", "spec": "2 гостей · власний вихід до річки · чан", "desc": "Окремий будиночок із власним виходом до річки. Гойдалка під деревом, чан на терасі, крита зона з мʼяким диваном та окремий мангал-казан — усе для тихого відпочинку вдвох.", "photos": ["images/584ea0f951f8.jpg", "images/97977f3ffff2.jpg", "images/e5872e842aae.jpg", "images/69d8d4ab099d.jpg", "images/9bbbb533b0b7.jpg", "images/8ef0d538c6ff.jpg"]}, "2": {"title": "Будиночок №2", "spec": "2 гостей · спільна тераса з №3", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №3 для компанії від 4 осіб.", "photos": ["images/f1959c42ec50.jpg", "images/c81db5be0410.jpg", "images/17c4b7853c75.jpg", "images/f561670e9404.jpg", "images/bc54a3376374.jpg"]}, "3": {"title": "Будиночок №3", "spec": "2 гостей · спільна тераса з №2", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №2 для компанії від 4 осіб.", "photos": ["images/012cd6d6d5bf.jpg", "images/8f49cd814ec0.jpg", "images/45118bf592e6.jpg", "images/5303c9627893.jpg", "images/7d5804fe78f8.jpg"]}, "4": {"title": "Будиночок №4", "spec": "2 гостей · велика тераса · чан", "desc": "Найбільший будиночок із просторою терасою для святкувань (до 12 осіб): довгий стіл під тентом, альтанка з «папасан»-кріслами, окремий чан з видом на річку та власний спуск до пляжу.", "photos": ["images/4144a119d1d6.jpg", "images/04cee4509b34.jpg", "images/4f2815dadd74.jpg", "images/aba854329466.jpg", "images/29b13555df41.jpg", "images/1a7200c0e6a6.jpg"]}, "5": {"title": "Будиночок №5", "spec": "2 гостей · спільна тераса з №6", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №6 для сімей та компаній.", "photos": ["images/032e145c66a6.jpg", "images/bd991134d859.jpg", "images/9cc6fec920cc.jpg", "images/5c9c8af3a7d3.jpg", "images/4d8ef3135e77.jpg"]}, "6": {"title": "Будиночок №6", "spec": "2 гостей · спільна тераса з №5", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №5 для сімей та компаній.", "photos": ["images/d3360bc5d02e.jpg", "images/4ded44efeb8e.jpg", "images/b2a047df5155.jpg", "images/26376ead3425.jpg", "images/6b63f5a33b01.jpg", "images/b34d12deff78.jpg"]}};
+
+  /* Підказка «Подивитись» на картках — щоб на телефоні було зрозуміло, що картка відкривається */
+  (function () {
+    document.querySelectorAll('.house-card').forEach(function (card) {
+      var cap = card.querySelector('.house-cap');
+      if (!cap || cap.querySelector('.house-cta')) return;
+      var cta = document.createElement('span');
+      cta.className = 'house-cta';
+      cta.innerHTML = 'ПОДИВИТИСЬ<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+      cap.appendChild(cta);
+    });
+  })();
 
   var modal = document.getElementById('house-modal');
   var closeBtn = document.getElementById('modal-close-btn');
