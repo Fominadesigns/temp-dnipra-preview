@@ -3,14 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Темп Дніпра — головний екран</title>
+<title>Темп Дніпра — будиночки з басейном біля Києва, Вишгород | Оренда подобово</title>
+<meta name="description" content="Заміський комплекс «Темп Дніпра» у Вишгороді — 6 затишних будиночків з басейном, чанами, мангалами й виходом до Дніпра. 10 хвилин від Києва. Можна з тваринами. Бронювання: +38 068 977 2777">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Темп Дніпра">
+<meta name="geo.region" content="UA-32">
+<meta name="geo.placename" content="Вишгород, Київська область">
+<link rel="canonical" href="https://fominadesigns.github.io/temp-dnipra-preview/">
+<meta name="theme-color" content="#03484F">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="Темп Дніпра">
+<meta property="og:title" content="Темп Дніпра — будиночки з басейном за 10 хвилин від Києва">
+<meta property="og:description" content="6 затишних будиночків у Вишгороді: басейн, чани, мангали, тераси й вихід до Дніпра. Відпочинок для пар, сімей і компаній — можна з улюбленцями.">
+<meta property="og:url" content="https://fominadesigns.github.io/temp-dnipra-preview/">
+<meta property="og:image" content="https://fominadesigns.github.io/temp-dnipra-preview/images/45e47ebdecaa.jpg">
+<meta property="og:image:alt" content="Будиночок з чаном і мангалом на подвір'ї комплексу «Темп Дніпра»">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Темп Дніпра — будиночки з басейном за 10 хвилин від Києва">
+<meta name="twitter:description" content="6 затишних будиночків у Вишгороді: басейн, чани, мангали, тераси й вихід до Дніпра.">
+<meta name="twitter:image" content="https://fominadesigns.github.io/temp-dnipra-preview/images/45e47ebdecaa.jpg">
+
+<link rel="icon" href="images/8096c7828543.png" type="image/png">
+<link rel="apple-touch-icon" href="images/8096c7828543.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* ===== ІНДИКАТОР ПРОКРУТКИ ===== */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft));
+    z-index: 300; pointer-events: none;
+    box-shadow: 0 0 12px rgba(255,190,0,0.45);
+    transition: width 0.12s linear;
+  }
+
+  /* ===== ПОЯВА ПРИ СКРОЛІ ===== */
+  .reveal { opacity: 0; transform: translateY(26px); will-change: opacity, transform; }
+  .reveal.in { opacity: 1; transform: none;
+    transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out); }
+  .reveal-soft { opacity: 0; transform: translateY(14px); }
+  .reveal-soft.in { opacity: 1; transform: none;
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-soft, .reveal.in, .reveal-soft.in { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+
+  /* ===== ДИЗАЙН-ТОКЕНИ v2 ===== */
+  :root {
+    --gold:        #FFBE00;
+    --gold-soft:   #FFD466;
+    --gold-deep:   #E0A200;
+    --teal:        #03484F;
+    --teal-deep:   #02333A;
+    --teal-card:   #04353b;
+    --teal-ink:    #04262a;
+    --ink:         #050807;
+
+    --hairline:      1px solid rgba(255,255,255,0.10);
+    --hairline-gold: 1px solid rgba(255,190,0,0.22);
+
+    --sh-1: 0 2px 10px rgba(0,0,0,0.20);
+    --sh-2: 0 10px 30px rgba(0,0,0,0.28);
+    --sh-3: 0 20px 56px rgba(0,0,0,0.42);
+    --glow-gold: 0 10px 30px rgba(255,190,0,0.22);
+
+    --ease-out:  cubic-bezier(.22,.7,.26,1);
+    --ease-soft: cubic-bezier(.4,0,.2,1);
+    --t-fast: 0.22s;
+    --t-mid:  0.42s;
+    --t-slow: 0.8s;
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { overflow-x: hidden; }
-  body { min-height: 100%; font-family: 'Golos Text', sans-serif; background: #050807; }
+  html { overflow-x: hidden; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { min-height: 100%; font-family: 'Golos Text', sans-serif; background: var(--ink);
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
   #preloader {
     position: fixed; inset: 0; background: #050807; z-index: 100;
@@ -36,30 +108,41 @@
     position: absolute; top: 0; left: 0; right: 0; z-index: 8;
     display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
     padding: 14px 40px;
-    background: rgba(5,8,4,0.38);
-    backdrop-filter: blur(14px) saturate(130%);
-    -webkit-backdrop-filter: blur(14px) saturate(130%);
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: linear-gradient(180deg, rgba(5,8,4,0.62) 0%, rgba(5,8,4,0.34) 100%);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 1px 0 rgba(255,190,0,0.10), var(--sh-1);
     transform: translateY(-130%);
     transition: transform 1.3s cubic-bezier(.22,.9,.32,1);
   }
   header#site-header.show { transform: translateY(0); }
   .hdr-left { display: flex; gap: 28px; align-items: center; justify-self: start; }
   .hdr-item { display: flex; align-items: center; gap: 9px; color: #FFFFFF; font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: 13px; }
+  .hdr-item { text-decoration: none; transition: color 0.2s ease, opacity 0.2s ease; }
+  a.hdr-item:hover { color: #FFBE00; }
   .hdr-item img { width: 18px; height: 18px; display: block; }
   #header-logo-wrap { display: flex; align-items: center; height: 50px; justify-self: center; }
   #header-logo { height: 50px; width: auto; opacity: 0; }
   #header-logo.show { opacity: 1; transition: opacity 0.15s ease; }
   .hdr-right { justify-self: end; }
-  .btn { position: relative; overflow: hidden; transition: transform 0.15s ease, box-shadow 0.2s ease; }
+  .btn { position: relative; overflow: hidden;
+    transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), filter var(--t-fast) var(--ease-out);
+    letter-spacing: 0.06em; }
   .btn::after {
     content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
     background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.65) 50%, transparent 100%);
     transform: skewX(-20deg); transition: left 0.6s ease; pointer-events: none;
   }
   .btn:hover::after { left: 130%; }
-  .btn:hover { box-shadow: 0 4px 16px rgba(255,190,0,0.4); }
-  .btn:active { transform: scale(0.95) translateY(1px); box-shadow: 0 2px 8px rgba(0,0,0,0.4) inset, 0 1px 4px rgba(0,0,0,0.3); }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--glow-gold); filter: saturate(1.06); }
+  .btn:active { transform: translateY(0) scale(0.985); box-shadow: 0 2px 8px rgba(0,0,0,0.35) inset; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 46%, var(--gold-deep) 100%);
+    box-shadow: 0 6px 18px rgba(255,190,0,0.16);
+  }
+  .btn-outline { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .btn-outline:hover { background: rgba(255,190,0,0.10); }
   @media (max-width: 900px) {
     header#site-header { padding: 14px 20px; }
     .hdr-left { gap: 14px; flex-wrap: wrap; row-gap: 6px; }
@@ -78,76 +161,99 @@
   .btn-outline svg { flex: none; }
 
   #text-overlay {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+    position: fixed; inset: 0; z-index: 6;
+    display: flex; align-items: flex-end; justify-content: center;
     pointer-events: none;
     transform: translateY(100%);
     transition: transform 7s cubic-bezier(.22,.9,.32,1);
     will-change: transform;
   }
   #text-overlay.show { transform: translateY(0); }
-  #grad-bg { position: absolute; left: 0; right: 0; bottom: 0; height: 80vh; z-index: 0;
-    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.82) 32%, rgba(0,0,0,0.35) 62%, rgba(0,0,0,0) 85%);
+  #grad-bg { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.8) 22%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%);
   }
-  #text-inner { position: relative; z-index: 1; text-align: center; padding: 30px 24px 27px; pointer-events: auto; }
-  .hero-h { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(36px, calc(11.077px + 3.2452vw), 63px); line-height: 1.0; color: #fff; }
-  .hero-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
-  .hero-p { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.16; max-width: 640px; margin: 12px auto 0; color: rgba(255,255,255,0.88); }
-  #hero-btn-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 18.2px; }
+  #text-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; }
+  .hero-h { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(36px, calc(11.077px + 3.2452vw), 63px); line-height: 1.0; color: #fff; }
+  .hero-accent { display: block; font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
+  .hero-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; max-width: 640px; margin: 12px auto 0; color: rgba(255,255,255,0.88); }
+  #hero-btn-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18.2px; flex-wrap: wrap; }
+  #hero-btn-row .btn { text-decoration: none; }
   #hero-btn-row .btn { margin-top: 0; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   #hero-btn-row .btn-outline { font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   .hdr-right .btn { padding: 11.5px 24px; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
 
   #screen3 {
     position: relative; z-index: 9; overflow-x: hidden;
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F;
     display: flex; flex-direction: column;
-    padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0;
+    padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0;
   }
   #feat-viewport { width: 100%; overflow: hidden; }
   #feat-track { display: flex; gap: 14px; will-change: transform; }
   #big-quote-wrap {
     flex: 1; display: flex; align-items: center; justify-content: center;
-    margin-top: clamp(70px, calc(-3.846px + 9.6154vw), 150px);
+    margin-top: clamp(110px, calc(-5.77px + 14.42vw), 225px);
   }
   #big-quote {
-    text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 400;
+    text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.012em;
     font-size: 50px; line-height: 1.28; color: #fff;
   }
   #big-quote .bq-line { display: block; white-space: nowrap; }
   #big-quote .gold { color: #FFBE00; }
   .feat-card {
-    background: #04353b; border: 1px solid rgba(255,190,0,0.18);
-    border-radius: 0; padding: 26px 14px; text-align: center;
+    padding: 34px 20px;
+    background:
+      linear-gradient(160deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0) 55%),
+      linear-gradient(180deg, #05404a 0%, #04353b 100%);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 0; text-align: center;
     flex: none; box-sizing: border-box;
   }
-  .feat-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 16px; height: 46px; }
+  .feat-card { position: relative; transition: transform var(--t-mid) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), border-color var(--t-mid) var(--ease-out); }
+  .feat-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,190,0,0.55), transparent);
+    opacity: 0.5; transition: opacity var(--t-mid) var(--ease-out);
+  }
+  .feat-card:hover { transform: translateY(-4px); box-shadow: var(--sh-2); border-color: rgba(255,190,0,0.30); }
+  .feat-card:hover::before { opacity: 1; }
+  .feat-icon { display: flex; align-items: center; justify-content: center; margin-bottom: 16px; height: 46px;
+    transition: transform var(--t-mid) var(--ease-out); }
+  .feat-card:hover .feat-icon { transform: translateY(-2px) scale(1.06); }
   .feat-icon img { height: 46px; width: auto; }
   .feat-icon svg { height: 40px; width: auto; }
 
-  #screen7 { position: relative; z-index: 9; background: #03484F; padding: 0 0 clamp(80px, calc(15.385px + 8.4135vw), 150px); }
+  #screen7 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(120px, calc(23.077px + 12.62vw), 225px); }
   #chan-text { text-align: center; }
-  .chan-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; white-space: nowrap; }
-  .chan-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
-  .chan-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.16; color: rgba(255,255,255,0.82); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .chan-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; white-space: nowrap; }
+  .chan-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
+  .chan-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin-top: 20px; max-width: 640px; margin-left: auto; margin-right: auto; }
   #chan-text .btn { margin-top: 28px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
   #chan-viewport { width: 100%; overflow: hidden; margin-top: 60px; }
   #chan-track { display: flex; align-items: flex-start; gap: 14px; will-change: transform; }
   .chan-card { position: relative; flex: none; overflow: hidden; }
   .chan-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .feat-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(11.5px, calc(10.4px + 0.14vw), 13px); color: #fff; line-height: 1.3; margin-bottom: 8px; }
-  .feat-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(11.5px, calc(10.6px + 0.12vw), 12.5px); line-height: 1.25; color: rgba(255,255,255,0.65); }
+  .feat-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(13.8px, calc(12.48px + 0.168vw), 15.6px); color: #fff; line-height: 1.3; margin-bottom: 8px; }
+  .feat-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13.8px, calc(12.72px + 0.144vw), 15px); line-height: 1.45; color: rgba(255,255,255,0.65); }
 
-  #screen4 { position: relative; z-index: 9; background: #03484F; padding: 0 0 clamp(80px, calc(15.385px + 8.4135vw), 150px); }
+  #screen4 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(120px, calc(23.077px + 12.62vw), 225px); }
   #amenities-wrap.row { align-items: stretch; }
   #amenities-wrap .col-9 { display: flex; padding-right: 0; }
   #amenities-wrap .col-3 { display: flex; justify-content: flex-end; padding-left: 0; }
-  #amenities-card { display: flex; flex-direction: column; flex: 1; min-width: 0; width: 100%; background: #04262a; border-radius: 0; padding: 34px 34px; box-sizing: border-box; }
-  .am-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(15px, calc(9.462px + 0.7212vw), 21px); color: #fff; line-height: 1.25; white-space: nowrap; }
-  .am-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(12px, calc(10.154px + 0.2404vw), 14px); line-height: 1.09; color: rgba(255,255,255,0.75); margin-top: 10px; margin-bottom: 26px; max-width: 480px; }
+  #amenities-card { display: flex; flex-direction: column; flex: 1; min-width: 0; width: 100%; 
+    background:
+      linear-gradient(155deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 48%),
+      linear-gradient(180deg, #053038 0%, #04222a 100%);
+    border: 1px solid rgba(255,255,255,0.08); box-shadow: var(--sh-2); border-radius: 0; padding: 34px 34px; box-sizing: border-box; }
+  .am-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(15px, calc(9.462px + 0.7212vw), 21px); color: #fff; line-height: 1.25; white-space: nowrap; }
+  .am-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(14.4px, calc(12.185px + 0.2885vw), 16.8px); line-height: 1.5; color: rgba(255,255,255,0.75); margin-top: 10px; margin-bottom: 26px; max-width: 480px; }
   #amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
-  .amenity-row { display: flex; align-items: center; gap: 14px; }
+  .amenity-row { display: flex; align-items: center; gap: 14px; transition: transform var(--t-fast) var(--ease-out); }
+  .amenity-row:hover { transform: translateX(3px); }
+  .amenity-row img { transition: transform var(--t-fast) var(--ease-out); }
+  .amenity-row:hover img { transform: scale(1.10); }
   .amenity-row img { width: 25px; height: 25px; flex: none; margin-top: 0; }
-  .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(10.944px, calc(9.257px + 0.219vw), 12.768px); line-height: 1.26; color: #fff; }
+  .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(13.13px, calc(11.108px + 0.263vw), 15.32px); line-height: 1.45; color: #fff; }
   #photo-slider { position: relative; overflow: hidden; border-radius: 0; flex: none; }
   #amenities-title-top { display: none; }
   .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
@@ -165,39 +271,60 @@
   .slide-dot.active { background: #FFBE00; }
   @media (max-width: 860px) { #amenities-wrap { grid-template-columns: 1fr; } }
   @media (max-width: 1024px) {
+    #hero-btn-row .btn, #hero-btn-row .btn-outline, .hdr-right .btn, #chan-text .btn, .modal-right .btn, #pool-inner .btn, #pet-inner .btn, .modal-btn-row .btn-outline {
+      font-size: clamp(13.8px, calc(12.2px + 0.2vw), 15.6px);
+      padding: 13.8px 29px;
+    }
     #amenities-title-top { display: block; text-align: center; margin-bottom: 22px; }
     #amenities-title-top .am-desc { max-width: 640px; margin: 10px auto 0; }
     #amenities-card .am-title, #amenities-card .am-desc { display: none; }
-    #amenities-card { padding: 24px; justify-content: center; }
+    #amenities-card { padding: 36px 32px; justify-content: center; }
     #amenities-wrap .col-9 { flex: 0 0 66.6667%; max-width: 66.6667%; }
     #amenities-wrap .col-3 { flex: 0 0 33.3333%; max-width: 33.3333%; }
     #amenities-wrap .row { align-items: stretch; }
     #amenities-wrap .col-3 { align-items: stretch; }
-    #photo-slider { width: 100%; height: 100%; align-self: stretch; }
+    #photo-slider { width: 100%; align-self: stretch; }
   }
   /* ======= ГОРИЗОНТАЛЬНИЙ МОБІЛЬНИЙ ======= */
   @media (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+    /* прибираємо мінімальні висоти, розраховані на великі екрани:
+       через них під фото лишалася порожня чорна зона */
+    #hero { height: 150vh; min-height: 0; }
+    #hero-viewport { height: 100vh; min-height: 0; }
+    #screen5, #screen9 { height: 100vh; min-height: 0; }
     .hdr-item { font-size: 10px; }
     .hdr-item img { width: 14px; height: 14px; }
     #header-logo-wrap, #header-logo { height: 34px; }
     header#site-header { padding: 8px 20px; }
-    #hero-btn-row .btn, #hero-btn-row .btn-outline, .hdr-right .btn, #chan-text .btn, .modal-right .btn, #pool-inner .btn {
-      font-size: 11.5px; padding: 10px 20px;
+    #hero-btn-row .btn, #hero-btn-row .btn-outline, .hdr-right .btn, #chan-text .btn, .modal-right .btn, #pool-inner .btn, #pet-inner .btn {
+      font-size: 13.8px; padding: 12px 24px;
     }
-    #text-inner { padding: 18px 24px 18px; }
+    #text-inner { padding: 16px 24px 5vh; }
     .hero-h { font-size: 30px; line-height: 1.1; }
     .hero-accent { font-size: 18px; margin-top: 6px; }
-    .hero-p { font-size: 12.5px; line-height: 1.35; margin-top: 10px; }
+    .hero-p { font-size: 14px; line-height: 1.4; margin-top: 10px; }
     #hero-btn-row { margin-top: 14px; }
-    #amenities-title-top { display: none; }
-    #amenities-card .am-title, #amenities-card .am-desc { display: block; }
-    .amenity-row img { width: 30px; height: 30px; }
-    .amenity-row span { font-size: 12px; line-height: 1.3; }
-    #pool-inner { padding: 20px 24px 40px; }
+    /* заголовок і опис — над блоком по центру, картка та слайдер по половині ширини */
+    #amenities-title-top { display: block; text-align: center; margin-bottom: 20px; }
+    #amenities-title-top .am-desc { max-width: 620px; margin: 8px auto 0; }
+    #amenities-card .am-title, #amenities-card .am-desc { display: none; }
+    #amenities-wrap .col-9 { flex: 0 0 50%; max-width: 50%; }
+    #amenities-wrap .col-3 { flex: 0 0 50%; max-width: 50%; }
+    #amenities-card { padding: 22px 20px; justify-content: center; }
+    #amenities-grid { gap: 10px 20px; }
+    .amenity-row img { width: 26px; height: 26px; }
+    .amenity-row span { font-size: 12.5px; line-height: 1.3; }
+    #pool-inner { padding: 16px 24px 5vh; }
     .pool-h2 { font-size: 26px; }
-    .pool-p { font-size: 12.5px; line-height: 1.35; margin-top: 12px; }
+    .pool-p { font-size: 14px; line-height: 1.4; margin-top: 12px; }
+    #pet-inner { padding: 16px 24px 5vh; }
+    .pet-h2 { font-size: 26px; }
+    .pet-p { font-size: 14px; line-height: 1.4; margin-top: 12px; }
   }
   @media (max-width: 1024px) and (min-height: 501px) and (max-height: 700px) and (orientation: landscape) {
+    #hero { height: 170vh; min-height: 0; }
+    #hero-viewport { height: 100vh; min-height: 0; }
+    #screen5, #screen9 { height: 100vh; min-height: 0; }
     #amenities-title-top { display: none; }
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .amenity-row img { width: 30px; height: 30px; }
@@ -207,7 +334,19 @@
   }
 
   .house-card { cursor: pointer; transition: transform 0.25s ease; }
-  .house-card:hover { transform: translateY(-4px); }
+  .house-card { transition: transform var(--t-mid) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), border-color var(--t-mid) var(--ease-out); }
+  .house-card:hover { transform: translateY(-6px); box-shadow: var(--sh-3); border-color: rgba(255,190,0,0.34); }
+  .house-photo img { transition: transform 0.9s var(--ease-out); }
+  .house-card:hover .house-photo img { transform: scale(1.06); }
+  .house-photo::after {
+    content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0) 55%);
+    opacity: 0.85; transition: opacity var(--t-mid) var(--ease-out);
+  }
+  .house-card:hover .house-photo::after { opacity: 0.55; }
+  .house-num { box-shadow: 0 4px 14px rgba(255,190,0,0.35); }
+  .house-title { transition: color var(--t-fast) var(--ease-out); }
+  .house-card:hover .house-title { color: var(--gold-soft); }
 
   #house-modal {
     position: fixed; inset: 0; z-index: 200; background: rgba(3,10,9,0.96);
@@ -247,12 +386,12 @@
   .modal-right { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-start; }
   .modal-right-top {}
   .modal-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(17px, calc(12.385px + 0.6010vw), 22px); color: #fff; margin-bottom: 10px; }
-  .modal-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(12px, calc(10.154px + 0.2404vw), 14px); color: rgba(255,255,255,0.55); margin-bottom: 22px; }
-  .modal-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.16; color: rgba(255,255,255,0.82); }
+  .modal-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(14.4px, calc(12.185px + 0.2885vw), 16.8px); color: rgba(255,255,255,0.55); margin-bottom: 22px; }
+  .modal-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); }
   .modal-amenities { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; margin-top: 14px; }
   .modal-amenity-row { display: flex; align-items: center; gap: 12px; }
   .modal-amenity-row img { width: 32px; height: 32px; flex: none; }
-  .modal-amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); line-height: 0.98; color: #fff; }
+  .modal-amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); line-height: 0.98; color: #fff; }
   .modal-right .btn { padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); display: inline-flex; align-items: center; }
   .modal-btn-row { display: flex; align-items: center; gap: 14px; align-self: flex-start; margin-top: 24px; }
   @media (max-width: 860px) {
@@ -260,10 +399,18 @@
     .modal-left, .modal-right { max-width: 100%; flex: 1 1 100%; }
   }
 
-  #screen6 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0; }
+  #screen6 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0; }
+  #houses-head { text-align: center; margin-bottom: clamp(34px, calc(12.3px + 2.83vw), 58px); }
+  .houses-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; letter-spacing: -0.01em; color: #fff; }
+  .houses-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); letter-spacing: 0.01em; color: #FFBE00; margin-top: 7px; }
+  .houses-sub { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin: 18px auto 0; max-width: 640px; }
   #houses-grid .row { margin-bottom: 24px; }
   #houses-grid .row:last-child { margin-bottom: 0; }
-  .house-card { background: #04353b; border: 1px solid rgba(255,190,0,0.18); border-radius: 0; overflow: hidden; height: 100%; }
+  .house-card { background:
+      linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 50%),
+      linear-gradient(180deg, #05404a 0%, #03303a 100%);
+    border: 1px solid rgba(255,255,255,0.09); border-radius: 0; overflow: hidden; height: 100%;
+    box-shadow: var(--sh-1); }
   .house-photo { position: relative; width: 100%; padding-top: 66%; overflow: hidden; }
   .house-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
   .house-num {
@@ -271,26 +418,149 @@
     background: #FFBE00; color: #12211f; font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 13px;
     width: 34px; height: 34px; border-radius: 0; display: flex; align-items: center; justify-content: center;
   }
-  .house-cap { padding: 20px 22px 24px; }
-  .house-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(14px, calc(11.231px + 0.3606vw), 17px); color: #fff; margin-bottom: 6px; }
-  .house-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); color: rgba(255,255,255,0.65); line-height: 1.05; }
+  .house-cta {
+    display: none; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 14px; padding: 11px 18px;
+    font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 12.5px; letter-spacing: 0.04em;
+    color: #FFBE00; border: 1.5px solid rgba(255,190,0,0.55); background: rgba(255,190,0,0.07);
+  }
+  .house-cta svg { flex: none; }
+  @media (max-width: 1024px) {
+    .house-cta { display: flex; }
+  }
+  .house-cap { padding: 26px 26px 30px; }
+  .house-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: #fff; margin-bottom: 6px; }
+  .house-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); color: rgba(255,255,255,0.65); line-height: 1.4; }
+
+  /* ===== ВІДГУКИ ===== */
+  #screen10 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0; }
+  #reviews-head { text-align: center; margin-bottom: clamp(32px, calc(11.538px + 2.6642vw), 54px); }
+  .rev-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; }
+  .rev-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
+  .rev-sub { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin: 18px auto 0; max-width: 640px; }
+  #reviews-slider { position: relative; }
+  #reviews-track {
+    display: flex; gap: 16px; overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    padding: 70px 0 84px; margin: -70px 0 -70px; -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: rgba(255,190,0,0.6) rgba(255,255,255,0.12);
+  }
+  #reviews-track::-webkit-scrollbar { height: 6px; }
+  #reviews-track::-webkit-scrollbar-track { background: rgba(255,255,255,0.12); }
+  #reviews-track::-webkit-scrollbar-thumb { background: rgba(255,190,0,0.6); }
+  .rev-card {
+    flex: none; scroll-snap-align: start; position: relative; cursor: zoom-in;
+    transition: transform 0.4s cubic-bezier(.2,.7,.3,1), box-shadow 0.4s ease;
+    width: calc((100% - 16px * 4) / 5);
+    height: 260px; overflow: hidden;
+    background: #fff; border: 1px solid rgba(255,190,0,0.22);
+    box-shadow: var(--sh-2);
+  }
+  .rev-card img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #fff; }
+  .rev-card.zoomed {
+    transform: scale(1.8); z-index: 6; cursor: zoom-out;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  }
+  /* Чани: збільшення фото при наведенні / дотику */
+  .chan-card { cursor: zoom-in; transition: transform 0.45s cubic-bezier(.2,.7,.26,1), box-shadow 0.45s ease; }
+  #chan-viewport { padding: 90px 0; margin-top: 10px; margin-bottom: -90px; }
+  @media (hover: hover) and (min-width: 1025px) {
+    .chan-card:hover { transform: scale(2); z-index: 6; box-shadow: 0 22px 54px rgba(0,0,0,0.55); }
+  }
+  #rev-lightbox {
+    position: fixed; inset: 0; z-index: 320; display: none;
+    align-items: center; justify-content: center; padding: 14px;
+    background: rgba(3,10,9,0.94); opacity: 0;
+    transition: opacity 0.28s ease; cursor: zoom-out;
+  }
+  #rev-lightbox.open { display: flex; }
+  #rev-lightbox.show { opacity: 1; }
+  #rev-lightbox img {
+    width: 100%; max-width: 720px; max-height: 92vh;
+    object-fit: contain; display: block; background: #fff;
+    transform: scale(0.94); transition: transform 0.3s cubic-bezier(.2,.7,.26,1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  }
+  #rev-lightbox.show img { transform: scale(1); }
+  #rev-lightbox-hint {
+    position: absolute; bottom: 18px; left: 0; right: 0; text-align: center;
+    font-family: 'Golos Text', sans-serif; font-size: 12.5px; color: rgba(255,255,255,0.6);
+    pointer-events: none;
+  }
+  #rev-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 16px; }
+  .rev-dot {
+    width: 7px; height: 7px; flex: none; border: 0; padding: 0; cursor: pointer;
+    background: rgba(255,255,255,0.32); transition: background 0.25s ease, width 0.25s ease;
+  }
+  .rev-dot.active { background: #FFBE00; width: 20px; }
+
+  /* Захист від «залипання» скролу на вбудованій карті */
+  #contact-map { position: relative; }
+  #map-shield { display: none; position: absolute; inset: 0; z-index: 2; cursor: pointer; }
+  #map-shield span {
+    position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+    background: rgba(0,0,0,0.65); color: #fff; font-family: 'Golos Text', sans-serif;
+    font-size: 12.5px; padding: 8px 14px; white-space: nowrap;
+  }
+  @media (max-width: 1024px) { #map-shield { display: block; } }
+
+  .rev-arrow {
+    position: absolute; top: calc(50% - 7px); transform: translateY(-50%);
+    width: 42px; height: 42px; border: none; border-radius: 0;
+    background: rgba(0,0,0,0.5); color: #fff; font-size: 22px; line-height: 1;
+    cursor: pointer; z-index: 3; display: flex; align-items: center; justify-content: center;
+  }
+  .rev-arrow:hover { background: #FFBE00; color: #12211f; }
+  .rev-arrow.prev { left: -8px; }
+  .rev-arrow.next { right: -8px; }
+  @media (max-width: 1024px) {
+    .rev-card { width: calc((100% - 14px * 3) / 4); height: 230px; }
+    #reviews-track { gap: 14px; }
+  }
+  @media (max-width: 767px) {
+    .rev-card { width: calc((100% - 12px * 2) / 3); height: 200px; }
+    #reviews-track { gap: 12px; }
+    .rev-arrow { width: 34px; height: 34px; font-size: 19px; background: rgba(0,0,0,0.6); }
+    .rev-arrow.prev { left: -4px; }
+    .rev-arrow.next { right: -4px; }
+  }
+
+  #screen9 { position: relative; height: 100vh; min-height: 640px; overflow: hidden; z-index: 10; }
+  #screen9 .bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  #pet-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: flex-end; justify-content: center;
+    transform: translateY(100%);
+    transition: transform 2.6s cubic-bezier(.25,.1,.15,1);
+    pointer-events: none;
+    will-change: transform;
+  }
+  #pet-overlay.show { transform: translateY(0); }
+  #pet-grad-bg { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.8) 22%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%);
+  }
+  #pet-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; max-width: 700px; margin: 0 auto; }
+  .pet-h2 { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(28px, calc(9.538px + 2.4038vw), 48px); line-height: 1.15; color: #fff; }
+  .pet-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
+  #pet-inner .btn { margin-top: 26px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
 
   #screen5 { position: relative; height: 100vh; min-height: 640px; overflow: hidden; z-index: 10; }
   #screen5 .bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   #pool-overlay {
-    position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; align-items: flex-end; justify-content: center;
     transform: translateY(100%);
     transition: transform 2.6s cubic-bezier(.25,.1,.15,1);
     pointer-events: none;
     will-change: transform;
   }
   #pool-overlay.show { transform: translateY(0); }
-  #pool-grad-bg { position: absolute; left: 0; right: 0; bottom: 0; height: 80vh; z-index: 0;
-    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.82) 32%, rgba(0,0,0,0.35) 62%, rgba(0,0,0,0) 85%);
+  #pool-grad-bg { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.8) 22%, rgba(0,0,0,0.45) 48%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%);
   }
-  #pool-inner { position: relative; z-index: 1; text-align: center; padding: 30px 24px 70px; pointer-events: auto; max-width: 640px; margin: 0 auto; }
-  .pool-h2 { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(28px, calc(9.538px + 2.4038vw), 48px); line-height: 1.15; color: #fff; }
-  .pool-p { font-family: 'Golos Text', sans-serif; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); line-height: 1.16; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
+  #pool-inner { position: relative; z-index: 1; text-align: center; padding: 24px 24px 9vh; pointer-events: auto; max-width: 640px; margin: 0 auto; }
+  .pool-h2 { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.015em; font-size: clamp(28px, calc(9.538px + 2.4038vw), 48px); line-height: 1.15; color: #fff; }
+  .pool-p { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; margin: 20px auto 0; color: rgba(255,255,255,0.88); }
   #pool-inner .btn { margin-top: 26px; padding: 11.5px 24px; font-weight: 600; font-size: clamp(11.5px, calc(10.2px + 0.17vw), 13px); }
 
 
@@ -309,7 +579,7 @@
   .col-11 { flex: 0 0 91.6667%; max-width: 91.6667%; padding: 0 12px; box-sizing: border-box; }
   .col-12 { flex: 0 0 100%; max-width: 100%; padding: 0 12px; box-sizing: border-box; }
 
-  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 75px 0; }
+  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 40px 0 140px; }
   #screen8 .row { min-height: 280px; align-items: stretch; }
   #contact-map { width: 100%; height: 100%; min-height: 200px; overflow: hidden; }
   #contact-map iframe { width: 100%; height: 100%; min-height: 200px; border: 0; display: block; }
@@ -317,25 +587,33 @@
   #contact-rows { margin-top: auto; }
   #screen8 .col-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
   #screen8 .col-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
-  .contact-eyebrow { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(13px, calc(11.154px + 0.2404vw), 15px); color: #FFBE00; letter-spacing: 0.02em; }
+  .contact-eyebrow { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); color: #FFBE00; letter-spacing: 0.02em; }
   .contact-title { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(20px, calc(8.923px + 1.4423vw), 32px); line-height: 1.15; color: #fff; margin-top: 8px; }
   #contact-rows { margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
   .contact-row { display: flex; align-items: center; gap: 16px; }
-  .contact-row .contact-icon { flex: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1.5px solid #FFBE00; }
-  .contact-row .contact-icon svg { width: 20px; height: 20px; display: block; }
-  .contact-row a, .contact-row span.contact-text { font-family: 'Golos Text', sans-serif; font-size: clamp(14px, calc(11.231px + 0.3606vw), 17px); color: rgba(255,255,255,0.92); text-decoration: none; }
+  .contact-row .contact-icon { flex: none; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+  .contact-row .contact-icon svg, .contact-row .contact-icon img { width: 28px; height: 28px; display: block; object-fit: contain; }
+  .contact-row a, .contact-row span.contact-text { font-family: 'Golos Text', sans-serif; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: rgba(255,255,255,0.92); text-decoration: none; }
   .contact-row a:hover { color: #FFBE00; }
 
-  #site-footer { position: relative; z-index: 9; background: #000000; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 0 30px; }
+  #site-footer { position: relative; z-index: 9; background: #000000; border-top: 1px solid rgba(255,255,255,0.08); padding: 110px 0 40px; }
   #footer-top { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 24px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   #footer-logo-link { display: block; line-height: 0; transition: opacity 0.2s ease; }
   #footer-logo-link:hover { opacity: 0.8; }
   #footer-logo { height: clamp(56px, calc(22.769px + 4.3269vw), 92px); width: auto; display: block; margin: 0 auto; }
   #footer-nav { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
-  #footer-nav a { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(11.5px, calc(9.654px + 0.2404vw), 13.5px); color: rgba(255,255,255,0.82); text-decoration: none; }
+  #footer-nav a { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(13.8px, calc(11.585px + 0.2885vw), 16.2px); color: rgba(255,255,255,0.82); text-decoration: none; }
+  #footer-nav a { position: relative; transition: color var(--t-fast) var(--ease-out); }
+  #footer-nav a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px;
+    background: var(--gold); transform: scaleX(0); transform-origin: center;
+    transition: transform var(--t-mid) var(--ease-out);
+  }
   #footer-nav a:hover { color: #FFBE00; }
+  #footer-nav a:hover::after { transform: scaleX(1); }
+  .contact-row a { transition: color var(--t-fast) var(--ease-out); }
   #footer-bottom { display: flex; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; gap: 12px; padding-top: 22px; }
-  #footer-bottom .footer-copy { font-family: 'Golos Text', sans-serif; font-size: clamp(11px, calc(9.154px + 0.2404vw), 13px); color: rgba(255,255,255,0.5); }
+  #footer-bottom .footer-copy { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); color: rgba(255,255,255,0.5); }
 
   #video-modal { position: fixed; inset: 0; z-index: 300; background: rgba(5,8,4,0.86); display: none; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
   #video-modal.open { display: flex; }
@@ -370,15 +648,51 @@
     #footer-top { gap: 24px; }
 
     /* Карта і контакти — в стовпчик */
-    #screen8 .row { display: block; min-height: 0; margin-left: 0; margin-right: 0; width: 100%; }
+    #screen8 .row { display: flex; flex-direction: column; min-height: 0; margin-left: 0; margin-right: 0; width: 100%; }
+    #screen8 .col-8 { order: 2; }
+    #screen8 .col-4 { order: 1; }
     #screen8 .col-8, #screen8 .col-4 { flex: none; max-width: 100%; width: 100%; padding: 0; }
-    #contact-map { height: 260px; min-height: 260px; }
-    #contact-info { padding-left: 0; margin-top: 26px; height: auto; }
-    #contact-rows { margin-top: 18px; }
+    #contact-map { height: 260px; min-height: 260px; margin-top: 28px; }
+    #contact-info { padding-left: 0; margin-top: 0; height: auto; text-align: center; align-items: center; }
+    #contact-rows { margin-top: 18px; align-items: center; }
+    .contact-row { justify-content: center; }
   }
 
   @media (max-width: 480px) {
     #houses-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Мобільні фото на всю ширину — усі вертикальні екрани до планшета.
+     Секції стають рівно по висоті фото: без порожньої чорної зони,
+     текст лежить поверх фото й нікуди не зникає при прокрутці. */
+  @media (max-width: 768px) and (orientation: portrait) {
+    :root { --vertical-photos: 1; }
+    #hero { height: auto; min-height: 0; }
+    #hero-viewport { position: static; height: auto; min-height: 0; overflow: visible; }
+    #hero .bg-photo { position: relative; inset: auto; width: 100%; height: auto; max-height: none; object-fit: fill; transform: none !important; }
+
+    /* Текст із градієнтом «прилипає» до низу екрана, поки видно головний екран,
+       і зупиняється рівно на його нижній межі — не заходячи на наступну секцію */
+    #text-overlay {
+      position: sticky;
+      top: auto; left: auto; right: auto; bottom: 0;
+      width: 100%; height: 100vh; margin-top: -100vh;
+    }
+
+    #screen5, #screen9 { height: auto; min-height: 0; }
+    #screen5 .bg-photo, #screen9 .bg-photo { position: relative; inset: auto; width: 100%; height: auto; object-fit: fill; }
+    #pool-overlay, #pet-overlay {
+      position: sticky;
+      top: auto; left: auto; right: auto; bottom: 0;
+      width: 100%; height: 100vh; margin-top: -100vh;
+    }
+
+    /* Зручності: картка зверху, квадратний слайдер під нею на всю ширину */
+    #amenities-title-top { display: none; }
+    #amenities-wrap .row { display: block; margin-left: 0; margin-right: 0; width: 100%; }
+    #amenities-wrap .col-9, #amenities-wrap .col-3 { flex: none; max-width: 100%; width: 100%; padding: 0; display: block; }
+    #amenities-card .am-title, #amenities-card .am-desc { display: block; }
+    #photo-slider { width: 100%; margin-top: 16px; }
   }
 
   /* ======= ВЕРТИКАЛЬНИЙ МОБІЛЬНИЙ ======= */
@@ -391,25 +705,23 @@
     #header-logo-wrap { justify-self: start; }
     #header-logo-wrap, #header-logo { height: 34px; }
     .hdr-right { justify-self: end; }
-    .hdr-right .btn { font-size: 9.5px; padding: 9px 13px; letter-spacing: 0.02em; }
+    .hdr-right .btn { font-size: 12.5px; padding: 11px 17px; letter-spacing: 0.02em; }
     .hdr-right .btn svg { width: 10px; height: 10px; }
 
     /* Головний екран */
-    /* Фото на всю ширину екрана, без обрізки з боків */
-    #hero .bg-photo { width: 100%; height: auto; max-height: none; object-fit: fill; object-position: center top; }
-    #screen5 .bg-photo { inset: 0 0 auto 0; width: 100%; height: auto; object-fit: fill; }
-    #text-inner { padding: 24px 18px 28px; }
+    #text-inner { padding: 24px 20px 8vh; }
     .hero-h { font-size: 26px; line-height: 1.14; }
     .hero-accent { font-size: 17px; margin-top: 9px; }
-    .hero-p { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .hero-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .hero-p br { display: none; }
-    #hero-btn-row { margin-top: 22px; }
-    #hero-btn-row .btn, #hero-btn-row .btn-outline { font-size: 11px; padding: 13px 26px; }
+    #hero-btn-row { margin-top: 22px; flex-direction: column; gap: 12px; }
+    #hero-btn-row .btn { width: 100%; max-width: 320px; justify-content: center; }
+    #hero-btn-row .btn, #hero-btn-row .btn-outline { font-size: 14.5px; padding: 15.6px 31px; }
 
     /* Вертикальні відступи секцій */
-    #screen3, #screen6 { padding: 70px 0; }
-    #screen4, #screen7 { padding-bottom: 70px; }
-    #screen8 { padding: 60px 0; }
+    #screen3, #screen6 { padding: 130px 0; }
+    #screen4, #screen7 { padding-bottom: 130px; }
+    #screen8 { padding: 30px 0 110px; }
 
     /* Велика цитата */
     #big-quote { line-height: 1.42; }
@@ -417,23 +729,23 @@
     #big-quote-wrap { margin-top: 54px; }
 
     /* Картки переваг */
-    .feat-card { padding: 20px 12px; }
+    .feat-card { padding: 30px 16px; }
     .feat-icon { height: 38px; margin-bottom: 12px; }
     .feat-icon img, .feat-icon svg { height: 38px; }
-    .feat-title { font-size: 12.5px; margin-bottom: 6px; }
-    .feat-desc { font-size: 11.5px; line-height: 1.3; }
+    .feat-title { font-size: 14.5px; margin-bottom: 6px; }
+    .feat-desc { font-size: 13.5px; line-height: 1.4; }
 
     /* Зручності — все в стовпчик */
     #amenities-title-top { display: none; }
     #amenities-wrap .row { display: block; margin-left: 0; margin-right: 0; width: 100%; }
     #amenities-wrap .col-9, #amenities-wrap .col-3 { flex: none; max-width: 100%; width: 100%; padding: 0; display: block; }
-    #amenities-card { padding: 24px 20px; }
+    #amenities-card { padding: 34px 26px; }
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .am-title { font-size: 20px; line-height: 1.28; }
-    .am-desc { font-size: 13px; line-height: 1.45; margin-top: 10px; margin-bottom: 22px; }
+    .am-desc { font-size: 15.5px; line-height: 1.45; margin-top: 10px; margin-bottom: 22px; }
     #amenities-grid { grid-template-columns: 1fr; gap: 14px; }
     .amenity-row img { width: 28px; height: 28px; }
-    .amenity-row span { font-size: 12.5px; line-height: 1.35; }
+    .amenity-row span { font-size: 14.5px; line-height: 1.4; }
     .amenity-row span br { display: none; }
     #photo-slider { width: 100%; margin-top: 16px; }
     .slide-arrow { width: 34px; height: 34px; font-size: 19px; }
@@ -441,26 +753,37 @@
     .slide-arrow.next { right: 10px; }
 
     /* Басейн */
-    #pool-inner { padding: 24px 18px 58px; }
+    #pool-inner { padding: 24px 20px 8vh; }
     .pool-h2 { font-size: 24px; line-height: 1.22; }
-    .pool-p { font-size: 13px; line-height: 1.45; margin-top: 14px; }
+    .pool-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .pool-p br { display: none; }
-    #pool-inner .btn { font-size: 11px; padding: 13px 26px; margin-top: 22px; }
+    #pool-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
+
+    /* Pet-friendly */
+    #pet-inner { padding: 24px 20px 8vh; }
+    .pet-h2 { font-size: 24px; line-height: 1.22; }
+    .pet-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
+    .pet-p br { display: none; }
+    #pet-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
+
+    .houses-title { font-size: 22px; line-height: 1.26; }
+    .houses-accent { font-size: 17px; }
+    .houses-sub { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
 
     /* Будиночки — один стовпчик */
     #houses-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
     #houses-grid .row { display: contents; margin-bottom: 0; }
     #houses-grid .col-4 { flex: none; max-width: none; padding: 0; margin-bottom: 0; }
-    .house-cap { padding: 16px 18px 20px; }
+    .house-cap { padding: 24px 22px 28px; }
     .house-title { font-size: 16px; }
-    .house-spec { font-size: 12.5px; line-height: 1.35; }
+    .house-spec { font-size: 14.5px; line-height: 1.4; }
 
     /* Чани */
     .chan-title { font-size: 22px; line-height: 1.26; }
     .chan-accent { font-size: 17px; }
-    .chan-desc { font-size: 13px; line-height: 1.45; margin-top: 14px; }
-    #chan-text .btn { font-size: 11px; padding: 13px 26px; margin-top: 22px; }
-    #chan-viewport { margin-top: 36px; }
+    .chan-desc { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
+    #chan-text .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
+    #chan-viewport { margin-top: 56px; }
 
     /* Карта і контакти */
     #contact-map { height: 240px; min-height: 240px; }
@@ -468,17 +791,24 @@
     .contact-eyebrow { font-size: 13px; }
     #contact-rows { gap: 12px; }
     .contact-row .contact-icon { width: 36px; height: 36px; }
-    .contact-row .contact-icon svg { width: 17px; height: 17px; }
-    .contact-row a, .contact-row span.contact-text { font-size: 14px; }
+    .contact-row .contact-icon svg, .contact-row .contact-icon img { width: 25px; height: 25px; }
+    .contact-row a, .contact-row span.contact-text { font-size: 16px; }
+
+    /* Відгуки */
+    #screen10 { padding: 130px 0; }
+    .rev-card { width: calc((100% - 10px) / 2); height: 190px; }
+    .rev-title { font-size: 22px; line-height: 1.26; }
+    .rev-accent { font-size: 17px; }
+    .rev-sub { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
 
     /* Футер */
-    #site-footer { padding: 44px 0 24px; }
-    #footer-top { gap: 20px; padding-bottom: 28px; }
+    #site-footer { padding: 80px 0 30px; }
+    #footer-top { gap: 26px; padding-bottom: 40px; }
     #footer-logo { height: 54px; }
     #footer-nav { gap: 14px 20px; }
-    #footer-nav a { font-size: 11.5px; }
+    #footer-nav a { font-size: 13.5px; }
     #footer-bottom { padding-top: 18px; }
-    #footer-bottom .footer-copy { font-size: 11px; }
+    #footer-bottom .footer-copy { font-size: 13px; }
 
     /* Модалка будиночка */
     .modal-inner { padding: 64px 18px 44px; gap: 20px; }
@@ -489,14 +819,14 @@
     .modal-thumbs { flex-direction: row; width: 100%; align-self: auto; overflow-x: auto; overflow-y: hidden; padding-right: 0; padding-bottom: 4px; }
     .modal-thumb { width: 70px; height: 54px; }
     .modal-title { font-size: 19px; }
-    .modal-spec { font-size: 12.5px; margin-bottom: 16px; }
-    .modal-desc { font-size: 13px; line-height: 1.45; }
+    .modal-spec { font-size: 14.5px; margin-bottom: 16px; }
+    .modal-desc { font-size: 15.5px; line-height: 1.45; }
     .modal-amenities { grid-template-columns: 1fr; gap: 12px; margin-top: 18px; }
     .modal-amenity-row img { width: 28px; height: 28px; }
-    .modal-amenity-row span { font-size: 12.5px; line-height: 1.35; }
+    .modal-amenity-row span { font-size: 14.5px; line-height: 1.4; }
     .modal-amenity-row span br { display: none; }
     .modal-btn-row { flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .modal-right .btn, .modal-btn-row .btn-outline { font-size: 11px; padding: 13px 22px; }
+    .modal-right .btn, .modal-btn-row .btn-outline { font-size: 14.5px; padding: 15.6px 26px; }
 
     /* Відео */
     #video-modal-inner { width: 92vw; min-width: 0; }
@@ -504,8 +834,141 @@
   }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Resort",
+  "name": "Темп Дніпра",
+  "description": "Заміський комплекс на 6 будиночків біля Дніпра у Вишгороді: відкритий басейн, чани з підігрівом, мангали й тераси. 10 хвилин від Києва. Можна з домашніми тваринами.",
+  "url": "https://fominadesigns.github.io/temp-dnipra-preview/",
+  "telephone": "+380689772777",
+  "image": [
+    "https://fominadesigns.github.io/temp-dnipra-preview/images/45e47ebdecaa.jpg",
+    "https://fominadesigns.github.io/temp-dnipra-preview/images/a343436eee26.jpg"
+  ],
+  "logo": "https://fominadesigns.github.io/temp-dnipra-preview/images/8096c7828543.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Садова, 3",
+    "addressLocality": "Вишгород",
+    "addressRegion": "Київська область",
+    "addressCountry": "UA"
+  },
+  "sameAs": [
+    "https://www.instagram.com/temp_dnipra"
+  ],
+  "petsAllowed": true,
+  "numberOfRooms": 6,
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Відкритий басейн",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Чан з підігрівом",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Мангал",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Тераса",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Кондиціонер",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Безкоштовний Wi-Fi",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Безкоштовна парковка",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Вихід до річки",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "SUP-дошки та каяк",
+      "value": true
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Дитячий майданчик",
+      "value": true
+    }
+  ],
+  "checkinTime": "14:00",
+  "checkoutTime": "12:00",
+  "currenciesAccepted": "UAH",
+  "containsPlace": [
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №1",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №2",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №3",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №4",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №5",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    },
+    {
+      "@type": "Accommodation",
+      "name": "Будиночок №6",
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 2
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<div id="scroll-progress"></div>
 
 <div id="preloader">
   <img id="preloader-logo" src="images/8096c7828543.png" alt="Темп Дніпра">
@@ -523,8 +986,8 @@
   </div>
   <header id="site-header">
     <div class="hdr-left">
-      <div class="hdr-item"><img src="images/98d5b8152ee0.png" alt="">Рецепція: +380 (096) 534 76 72</div>
-      <div class="hdr-item"><img src="images/506ddad40847.png" alt="">Як дістатися</div>
+      <a class="hdr-item" href="tel:+380689772777"><img src="images/98d5b8152ee0.png" alt="">Рецепція: +38 068 977 2777</a>
+      <a class="hdr-item" href="#screen8"><img src="images/506ddad40847.png" alt="">Як дістатися</a>
     </div>
     <div id="header-logo-wrap"><img id="header-logo" src="images/8096c7828543.png" alt="Темп Дніпра"></div>
     <div class="hdr-right"><span class="btn btn-outline">ЗАБРОНЮВАТИ<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></div>
@@ -533,11 +996,11 @@
   <div id="text-overlay">
     <div id="grad-bg"></div>
     <div id="text-inner">
-      <div class="hero-h">Відпочинок у затишних<br>будинках з басейном</div>
-      <div class="hero-accent">за 10 хвилин від Києва</div>
-      <div class="hero-p">Відпочивайте у тиші серед природи: будиночки біля Дніпра<br>з власною кухнею, терасою та мангалом, великий басейн із лежаками<br>й лише 10 хвилин їзди від Києва</div>
+      <h1 class="hero-h">Відпочинок у затишних <br>будиночках з басейном<span class="hero-accent">за 10 хвилин від Києва</span></h1>
+      <div class="hero-p">Відпочивайте у тиші серед природи: будиночки біля Дніпра <br>з власною кухнею, терасою та мангалом, великий басейн із лежаками <br>й лише 10 хвилин їзди від Києва</div>
       <div id="hero-btn-row">
         <span class="btn btn-primary">ЗАБРОНЮВАТИ<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+        <a href="#screen6" class="btn btn-outline">ОБРАТИ БУДИНОЧОК<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
@@ -549,131 +1012,131 @@
     <div id="feat-track">
       <div class="feat-card">
         <div class="feat-icon"><img src="images/7edb7b82e9fc.png" alt=""></div>
-        <div class="feat-title">6 затишних<br>будиночків</div>
-        <div class="feat-desc">Кожен на 2 гостей, з кухнею та кондиціонером</div>
+        <h3 class="feat-title">6 затишних <br>будиночків</h3>
+        <div class="feat-desc">Кожен на 2 гостей, з кухнею та кондиціонером</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/1359e6415ed9.png" alt=""></div>
-        <div class="feat-title">Власна тераса<br>та мангал</div>
-        <div class="feat-desc">Альтанка, столик і мангал біля кожного будиночка</div>
+        <h3 class="feat-title">Власна тераса <br>та мангал</h3>
+        <div class="feat-desc">Альтанка, столик і мангал біля кожного будиночка</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/20e537d6eb86.png" alt=""></div>
-        <div class="feat-title">Басейн<br>просто неба</div>
-        <div class="feat-desc">10×5×1.5 м, з лежаками для гостей</div>
+        <h3 class="feat-title">Басейн <br>просто неба</h3>
+        <div class="feat-desc">10×5×1,5 м, з лежаками для гостей</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/e8603141fc8f.png" alt=""></div>
-        <div class="feat-title">Чан<br>біля води</div>
-        <div class="feat-desc">Гідромасаж і підсвітка, біля 3 будиночків</div>
+        <h3 class="feat-title">Чан <br>біля води</h3>
+        <div class="feat-desc">Гідромасаж і підсвітка, біля 3 будиночків</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/f219fe619b17.png" alt=""></div>
-        <div class="feat-title">Вихід<br>до річки</div>
-        <div class="feat-desc">Дніпро за кілька кроків від території</div>
+        <h3 class="feat-title">Вихід <br>до річки</h3>
+        <div class="feat-desc">Дніпро за кілька кроків від території</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/506ddad40847.png" alt=""></div>
-        <div class="feat-title">10 хвилин<br>від Києва</div>
-        <div class="feat-desc">Вишгород, зручно дістатися на авто</div>
+        <h3 class="feat-title">10 хвилин <br>від Києва</h3>
+        <div class="feat-desc">Вишгород, зручно дістатися на авто</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12 V52"/><path d="M20 12 H35 Q47 12 47 24 Q47 36 35 36 H20"/></svg></div>
-        <div class="feat-title">Закрита<br>парковка</div>
-        <div class="feat-desc">Охороняється, на території комплексу</div>
+        <div class="feat-icon"><img src="images/icon_parking.png" alt=""></div>
+        <h3 class="feat-title">Закрита <br>парковка</h3>
+        <div class="feat-desc">Охороняється, на території комплексу</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 28 Q32 8 52 28"/><path d="M20 36 Q32 24 44 36"/><path d="M28 44 Q32 40 36 44"/><circle cx="32" cy="51" r="3" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">Безкоштовний<br>Wi-Fi</div>
-        <div class="feat-desc">Стабільний інтернет у кожному будиночку</div>
+        <div class="feat-icon"><img src="images/icon_wi-fi.png" alt=""></div>
+        <h3 class="feat-title">Безкоштовний <br>Wi-Fi</h3>
+        <div class="feat-desc">Стабільний інтернет у кожному будиночку</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="30" width="46" height="10" rx="5"/><path d="M45 10 L21 50"/><circle cx="45" cy="10" r="3" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">SAP-дошки<br>та каяк</div>
-        <div class="feat-desc">У прокат для гостей комплексу</div>
+        <div class="feat-icon"><img src="images/icon_sup.png" alt=""></div>
+        <h3 class="feat-title">SUP-дошки <br>та каяк</h3>
+        <div class="feat-desc">У прокат для гостей комплексу</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12 L44 30"/><path d="M44 30 Q50 40 44 50"/><path d="M36 46 Q41 42 46 46 Q41 50 36 46 Z"/><circle cx="36" cy="46" r="1.2" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">Риболовля<br>на Дніпрі</div>
-        <div class="feat-desc">Вудки в оренду, тихі місця для риболовлі</div>
+        <div class="feat-icon"><img src="images/icon_fishing.png" alt=""></div>
+        <h3 class="feat-title">Риболовля <br>на Дніпрі</h3>
+        <div class="feat-desc">Вудки в оренду, тихі місця для риболовлі</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="13" r="5"/><path d="M32 18 V46"/><path d="M20 28 H44"/><path d="M20 46 Q26 55 32 46"/><path d="M44 46 Q38 55 32 46"/></svg></div>
-        <div class="feat-title">Парковка<br>човнів</div>
-        <div class="feat-desc">Місце для швартування власного човна</div>
+        <div class="feat-icon"><img src="images/icon_yacht.png" alt=""></div>
+        <h3 class="feat-title">Парковка <br>човнів</h3>
+        <div class="feat-desc">Місце для швартування власного човна</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 40 L34 40 L51 18"/><path d="M12 50 q5 -5 10 0 t10 0 t10 0 t10 0"/></svg></div>
-        <div class="feat-title">Спуск<br>гідроциклів</div>
-        <div class="feat-desc">Зручний з'їзд до води для водної техніки</div>
+        <div class="feat-icon"><img src="images/icon_jet-ski.png" alt=""></div>
+        <h3 class="feat-title">Спуск <br>гідроциклів</h3>
+        <div class="feat-desc">Зручний з'їзд до води для водної техніки</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/7edb7b82e9fc.png" alt=""></div>
-        <div class="feat-title">6 затишних<br>будиночків</div>
-        <div class="feat-desc">Кожен на 2 гостей, з кухнею та кондиціонером</div>
+        <h3 class="feat-title">6 затишних <br>будиночків</h3>
+        <div class="feat-desc">Кожен на 2 гостей, з кухнею та кондиціонером</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/1359e6415ed9.png" alt=""></div>
-        <div class="feat-title">Власна тераса<br>та мангал</div>
-        <div class="feat-desc">Альтанка, столик і мангал біля кожного будиночка</div>
+        <h3 class="feat-title">Власна тераса <br>та мангал</h3>
+        <div class="feat-desc">Альтанка, столик і мангал біля кожного будиночка</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/20e537d6eb86.png" alt=""></div>
-        <div class="feat-title">Басейн<br>просто неба</div>
-        <div class="feat-desc">10×5×1.5 м, з лежаками для гостей</div>
+        <h3 class="feat-title">Басейн <br>просто неба</h3>
+        <div class="feat-desc">10×5×1,5 м, з лежаками для гостей</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/e8603141fc8f.png" alt=""></div>
-        <div class="feat-title">Чан<br>біля води</div>
-        <div class="feat-desc">Гідромасаж і підсвітка, біля 3 будиночків</div>
+        <h3 class="feat-title">Чан <br>біля води</h3>
+        <div class="feat-desc">Гідромасаж і підсвітка, біля 3 будиночків</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/f219fe619b17.png" alt=""></div>
-        <div class="feat-title">Вихід<br>до річки</div>
-        <div class="feat-desc">Дніпро за кілька кроків від території</div>
+        <h3 class="feat-title">Вихід <br>до річки</h3>
+        <div class="feat-desc">Дніпро за кілька кроків від території</div>
       </div>
       <div class="feat-card">
         <div class="feat-icon"><img src="images/506ddad40847.png" alt=""></div>
-        <div class="feat-title">10 хвилин<br>від Києва</div>
-        <div class="feat-desc">Вишгород, зручно дістатися на авто</div>
+        <h3 class="feat-title">10 хвилин <br>від Києва</h3>
+        <div class="feat-desc">Вишгород, зручно дістатися на авто</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12 V52"/><path d="M20 12 H35 Q47 12 47 24 Q47 36 35 36 H20"/></svg></div>
-        <div class="feat-title">Закрита<br>парковка</div>
-        <div class="feat-desc">Охороняється, на території комплексу</div>
+        <div class="feat-icon"><img src="images/icon_parking.png" alt=""></div>
+        <h3 class="feat-title">Закрита <br>парковка</h3>
+        <div class="feat-desc">Охороняється, на території комплексу</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 28 Q32 8 52 28"/><path d="M20 36 Q32 24 44 36"/><path d="M28 44 Q32 40 36 44"/><circle cx="32" cy="51" r="3" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">Безкоштовний<br>Wi-Fi</div>
-        <div class="feat-desc">Стабільний інтернет у кожному будиночку</div>
+        <div class="feat-icon"><img src="images/icon_wi-fi.png" alt=""></div>
+        <h3 class="feat-title">Безкоштовний <br>Wi-Fi</h3>
+        <div class="feat-desc">Стабільний інтернет у кожному будиночку</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="30" width="46" height="10" rx="5"/><path d="M45 10 L21 50"/><circle cx="45" cy="10" r="3" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">SAP-дошки<br>та каяк</div>
-        <div class="feat-desc">У прокат для гостей комплексу</div>
+        <div class="feat-icon"><img src="images/icon_sup.png" alt=""></div>
+        <h3 class="feat-title">SUP-дошки <br>та каяк</h3>
+        <div class="feat-desc">У прокат для гостей комплексу</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12 L44 30"/><path d="M44 30 Q50 40 44 50"/><path d="M36 46 Q41 42 46 46 Q41 50 36 46 Z"/><circle cx="36" cy="46" r="1.2" fill="#FFBE00"/></svg></div>
-        <div class="feat-title">Риболовля<br>на Дніпрі</div>
-        <div class="feat-desc">Вудки в оренду, тихі місця для риболовлі</div>
+        <div class="feat-icon"><img src="images/icon_fishing.png" alt=""></div>
+        <h3 class="feat-title">Риболовля <br>на Дніпрі</h3>
+        <div class="feat-desc">Вудки в оренду, тихі місця для риболовлі</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="13" r="5"/><path d="M32 18 V46"/><path d="M20 28 H44"/><path d="M20 46 Q26 55 32 46"/><path d="M44 46 Q38 55 32 46"/></svg></div>
-        <div class="feat-title">Парковка<br>човнів</div>
-        <div class="feat-desc">Місце для швартування власного човна</div>
+        <div class="feat-icon"><img src="images/icon_yacht.png" alt=""></div>
+        <h3 class="feat-title">Парковка <br>човнів</h3>
+        <div class="feat-desc">Місце для швартування власного човна</div>
       </div>
       <div class="feat-card">
-        <div class="feat-icon"><svg viewBox="0 0 64 64" fill="none" stroke="#FFBE00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 40 L34 40 L51 18"/><path d="M12 50 q5 -5 10 0 t10 0 t10 0 t10 0"/></svg></div>
-        <div class="feat-title">Спуск<br>гідроциклів</div>
-        <div class="feat-desc">Зручний з'їзд до води для водної техніки</div>
+        <div class="feat-icon"><img src="images/icon_jet-ski.png" alt=""></div>
+        <h3 class="feat-title">Спуск <br>гідроциклів</h3>
+        <div class="feat-desc">Зручний з'їзд до води для водної техніки</div>
       </div>
     </div>
   </div>
   <div id="big-quote-wrap">
     <div id="big-quote">
-      <span class="bq-line">Ми створюємо місце,</span>
-      <span class="bq-line">куди <span class="gold">хочеться втекти</span> від міста</span>
-      <span class="bq-line">і <span class="gold">залишитися</span> довше, ніж планував</span>
+      <span class="bq-line">Ми створюємо місце,</span>
+      <span class="bq-line">куди <span class="gold">хочеться втекти</span> від міста</span>
+      <span class="bq-line">і <span class="gold">залишитися</span> довше, ніж планував</span>
     </div>
   </div>
   </div>
@@ -682,48 +1145,48 @@
 <div id="screen4">
   <div id="amenities-wrap" class="container">
   <div id="amenities-title-top">
-    <div class="am-title">Все необхідне для комфортного відпочинку</div>
-    <div class="am-desc">Відпочивайте у сучасних будиночках серед зелені, де кожна деталь продумана для вашого комфорту</div>
+    <h2 class="am-title">Все необхідне для комфортного відпочинку</h2>
+    <div class="am-desc">Відпочивайте у сучасних будиночках серед зелені, де кожна деталь продумана для вашого комфорту</div>
   </div>
   <div class="row" style="width:100%">
     <div class="col-9">
     <div id="amenities-card">
-      <div class="am-title">Все необхідне для комфортного відпочинку</div>
-      <div class="am-desc">Відпочивайте у сучасних будиночках серед зелені, де кожна деталь продумана для вашого комфорту</div>
+      <h2 class="am-title">Все необхідне для комфортного відпочинку</h2>
+      <div class="am-desc">Відпочивайте у сучасних будиночках серед зелені, де кожна деталь продумана для вашого комфорту</div>
       <div id="amenities-grid">
         <div class="amenity-row">
           <img src="images/160653cf54a3.png" alt="">
-          <span>Двоспальне ліжко<br>з панорамним вікном</span>
+          <span>Двоспальне ліжко <br>з панорамним вікном</span>
         </div>
         <div class="amenity-row">
           <img src="images/7f8c15a6d623.png" alt="">
-          <span>Кондиціонер<br>у кожному будиночку</span>
+          <span>Кондиціонер <br>у кожному будиночку</span>
         </div>
         <div class="amenity-row">
           <img src="images/3f48a4445402.png" alt="">
-          <span>Мікрохвильова піч, холодильник,<br>чайник, кавомашина, посуд, чай/кава</span>
+          <span>Мікрохвильова піч, холодильник, <br>чайник, кавомашина, посуд, чай/кава</span>
         </div>
         <div class="amenity-row">
           <img src="images/cd7c948c6ad3.png" alt="">
-          <span>Душ, фен, косметичні набори,<br>рушники, халати, капці</span>
+          <span>Душ, фен, косметичні набори, <br>рушники, халати, капці</span>
         </div>
         <div class="amenity-row">
           <img src="images/ad5163e542a7.png" alt="">
-          <span>Затишна крита альтанка на терасі зі<br>столом та двома диванчиками</span>
+          <span>Затишна крита альтанка на терасі зі <br>столом та двома диванчиками</span>
         </div>
         <div class="amenity-row">
           <img src="images/1359e6415ed9.png" alt="">
-          <span>Мангал, решітки<br>та шампури</span>
+          <span>Мангал, решітки <br>та шампури</span>
         </div>
       </div>
     </div>
     </div>
     <div class="col-3">
     <div id="photo-slider">
-      <img class="slide-img active" src="images/e01ac59cee0f.jpg" alt=""><img class="slide-img" src="images/228a839b29dd.jpg" alt=""><img class="slide-img" src="images/8d8e93e89bf3.jpg" alt=""><img class="slide-img" src="images/3652abfdd971.jpg" alt=""><img class="slide-img" src="images/bce646dcc1d7.jpg" alt="">
+      <img class="slide-img active" src="images/In_01.png" alt="Спальня будиночка зі смарагдовими стінами та двоспальним ліжком" decoding="async"><img class="slide-imgNone" src="images/In_02.png" alt="Інтер’єр будиночка з панорамним вікном у зелень" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_03.png" alt="Кухонна зона з кавомашиною, чайником і мікрохвильовкою" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_04.png" alt="Ванна кімната з душем, феном і косметичними наборами" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_05.png" alt="Зона відпочинку всередині будиночка" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_06.png" alt="Двоспальне ліжко з видом на природу" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_07.jpg" alt="Інтер’єр будиночка «Темп Дніпра» — кухня та обідня зона" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_08.png" alt="Затишний куточок будиночка з кондиціонером" loading="lazy" decoding="async">
       <button class="slide-arrow prev" aria-label="Попереднє фото">&#8249;</button>
       <button class="slide-arrow next" aria-label="Наступне фото">&#8250;</button>
-      <div id="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span></div>
+      <div id="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span></div>
     </div>
     </div>
     </div>
@@ -731,12 +1194,12 @@
 </div>
 
 <div id="screen5">
-  <img class="bg-photo" src="images/a343436eee26.jpg" data-desktop="images/a343436eee26.jpg" data-mobile="images/pool-mobile.jpg.png" alt="Басейн">
+  <img class="bg-photo" src="images/a343436eee26.jpg" data-desktop="images/a343436eee26.jpg" data-mobile="images/pool-mobile.jpg.png" alt="Відкритий басейн 10×5 м із шезлонгами на території «Темп Дніпра»">
   <div id="pool-overlay">
     <div id="pool-grad-bg"></div>
     <div id="pool-inner">
-      <div class="pool-h2">2 ліжака біля відкритого басейну включені</div>
-      <div class="pool-p">Відкритий басейн доступний для всіх гостей комплексу. До кожного будиночка<br>ми резервуємо два шезлонги, щоб ви могли комфортно провести день біля води</div>
+      <h2 class="pool-h2">2 лежаки біля відкритого басейну включені</h2>
+      <div class="pool-p">Відкритий басейн доступний для всіх гостей комплексу. До кожного будиночка <br>ми резервуємо два шезлонги, щоб ви могли комфортно провести день біля води</div>
       <span class="btn btn-primary">ЗАБРОНЮВАТИ<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
     </div>
   </div>
@@ -744,41 +1207,46 @@
 
 <div id="screen6">
   <div class="container">
+    <div id="houses-head">
+      <h2 class="houses-title">Оберіть свій будиночок</h2>
+      <div class="houses-accent">шість варіантів для різного відпочинку</div>
+      <div class="houses-sub">Усі будиночки однакові всередині — різниця лише в терасі, виді та сусідстві. Натисніть на будь-який, щоб побачити фото й деталі</div>
+    </div>
     <div id="houses-grid">
       <div class="row">
       <div class="col-4">
         <div class="house-card" data-house="1" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/b2b22cead767.jpg" alt="Будиночок №1">
+            <img src="images/b2b22cead767.jpg" alt="Будиночок №1 з власним виходом до річки та чаном на терасі — «Темп Дніпра», Вишгород">
             <div class="house-num">№1</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №1</div>
-            <div class="house-spec">2 гостей · власний вихід до річки · чан</div>
+            <h3 class="house-title">Будиночок №1</h3>
+            <div class="house-spec">2 гостей · власний вихід до річки · чан</div>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="house-card" data-house="2" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/ed291bc82673.jpg" alt="Будиночок №2">
+            <img src="images/ed291bc82673.jpg" alt="Будиночок №2 зі спільною терасою та видом на затоку Дніпра — «Темп Дніпра», Вишгород">
             <div class="house-num">№2</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №2</div>
-            <div class="house-spec">2 гостей · спільна тераса з №3</div>
+            <h3 class="house-title">Будиночок №2</h3>
+            <div class="house-spec">2 гостей · спільна тераса з №3</div>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="house-card" data-house="3" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/2df233c15c6d.jpg" alt="Будиночок №3">
+            <img src="images/2df233c15c6d.jpg" alt="Будиночок №3 зі спільною терасою та видом на річку — «Темп Дніпра», Вишгород">
             <div class="house-num">№3</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №3</div>
-            <div class="house-spec">2 гостей · спільна тераса з №2</div>
+            <h3 class="house-title">Будиночок №3</h3>
+            <div class="house-spec">2 гостей · спільна тераса з №2</div>
           </div>
         </div>
       </div>
@@ -787,11 +1255,11 @@
       <div class="col-4">
         <div class="house-card" data-house="4" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/99ed4787b9db.jpg" alt="Будиночок №4">
+            <img src="images/99ed4787b9db.jpg" alt="Будиночок №4 з великою терасою для свят і чаном біля річки — «Темп Дніпра», Вишгород">
             <div class="house-num">№4</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №4</div>
+            <h3 class="house-title">Будиночок №4</h3>
             <div class="house-spec">2 гостей · велика тераса · чан</div>
           </div>
         </div>
@@ -799,24 +1267,24 @@
       <div class="col-4">
         <div class="house-card" data-house="5" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/837d1924fb34.jpg" alt="Будиночок №5">
+            <img src="images/837d1924fb34.jpg" alt="Будиночок №5 з видом на басейн і дитячий майданчик — «Темп Дніпра», Вишгород">
             <div class="house-num">№5</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №5</div>
-            <div class="house-spec">2 гостей · спільна тераса з №6</div>
+            <h3 class="house-title">Будиночок №5</h3>
+            <div class="house-spec">2 гостей · спільна тераса з №6</div>
           </div>
         </div>
       </div>
       <div class="col-4">
         <div class="house-card" data-house="6" role="button" tabindex="0">
           <div class="house-photo">
-            <img src="images/a1768ef4cc77.jpg" alt="Будиночок №6">
+            <img src="images/a1768ef4cc77.jpg" alt="Будиночок №6 з видом на басейн і дитячий майданчик — «Темп Дніпра», Вишгород">
             <div class="house-num">№6</div>
           </div>
           <div class="house-cap">
-            <div class="house-title">Будиночок №6</div>
-            <div class="house-spec">2 гостей · спільна тераса з №5</div>
+            <h3 class="house-title">Будиночок №6</h3>
+            <div class="house-spec">2 гостей · спільна тераса з №5</div>
           </div>
         </div>
       </div>
@@ -828,29 +1296,65 @@
 <div id="screen7">
   <div class="container">
     <div id="chan-text">
-      <div class="chan-title">Чани, мангали та альтанки</div>
-      <div class="chan-accent">для вашого відпочинку</div>
-      <div class="chan-desc">На території бази є чани з гідромасажем та підсвіткою, власні мангали, затишні альтанки та простір, де можна відпочити в будь-яку пору року</div>
+      <h2 class="chan-title">Чани, мангали та альтанки</h2>
+      <div class="chan-accent">для вашого відпочинку</div>
+      <div class="chan-desc">На території бази є чани з гідромасажем та підсвіткою, власні мангали, затишні альтанки та простір, де можна відпочити в будь-яку пору року</div>
       <span class="btn btn-primary">ЗАБРОНЮВАТИ<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
     </div>
   <div id="chan-viewport">
     <div id="chan-track">
-      <div class="chan-card"><img src="images/cd6a7be1e578.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/58843e847982.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/637da880af8f.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/a827f338cde4.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/f434fac75040.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/f4cd8ce89461.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/bd02e5fdf04b.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/cd6a7be1e578.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/58843e847982.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/637da880af8f.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/a827f338cde4.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/f434fac75040.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/f4cd8ce89461.jpg" alt=""></div>
-      <div class="chan-card"><img src="images/bd02e5fdf04b.jpg" alt=""></div>
+      <div class="chan-card"><img src="images/cd6a7be1e578.jpg" alt="Чан з підігрівом на терасі будиночка біля Дніпра" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/58843e847982.jpg" alt="Дерев’яний чан з видом на річку на території комплексу" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/637da880af8f.jpg" alt="Зона відпочинку біля води у Вишгороді" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/a827f338cde4.jpg" alt="Гойдалка та чан під деревами на подвір’ї" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/f434fac75040.jpg" alt="Альтанка з видом на Дніпро на території бази" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/f4cd8ce89461.jpg" alt="Крита тераса з м’якими диванами біля будиночка" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/bd02e5fdf04b.jpg" alt="Мангал із шашликом на терасі будиночка" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/cd6a7be1e578.jpg" alt="Чан з підігрівом на терасі будиночка біля Дніпра" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/58843e847982.jpg" alt="Дерев’яний чан з видом на річку на території комплексу" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/637da880af8f.jpg" alt="Зона відпочинку біля води у Вишгороді" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/a827f338cde4.jpg" alt="Гойдалка та чан під деревами на подвір’ї" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/f434fac75040.jpg" alt="Альтанка з видом на Дніпро на території бази" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/f4cd8ce89461.jpg" alt="Крита тераса з м’якими диванами біля будиночка" loading="lazy" decoding="async"></div>
+      <div class="chan-card"><img src="images/bd02e5fdf04b.jpg" alt="Мангал із шашликом на терасі будиночка" loading="lazy" decoding="async"></div>
         </div>
   </div>
+  </div>
+</div>
+
+<div id="screen9">
+  <img class="bg-photo" src="images/pet_desk.png" data-desktop="images/pet_desk.png" data-mobile="images/pet_mob.png" alt="Собаки бігають галявиною біля будиночка — комплекс дозволяє відпочинок з тваринами">
+  <div id="pet-overlay">
+    <div id="pet-grad-bg"></div>
+    <div id="pet-inner">
+      <h2 class="pet-h2">Ми раді гостям із хвостиками</h2>
+      <div class="pet-p">Приїжджайте разом з улюбленцем — уся територія відкрита для прогулянок, <br>поруч ліс і берег Дніпра. Просимо лише прибирати за ними <br>та не пускати на меблі</div>
+      <span class="btn btn-primary">ЗАБРОНЮВАТИ<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </div>
+</div>
+
+<div id="screen10">
+  <div class="container">
+    <div id="reviews-head">
+      <h2 class="rev-title">Що кажуть наші гості</h2>
+      <div class="rev-accent">справжні відгуки з Google</div>
+      <div class="rev-sub">Ми не переписуємо відгуки — це скріншоти того, що люди залишають після відпочинку в «Темп Дніпра»</div>
+    </div>
+    <div id="reviews-slider">
+      <button class="rev-arrow prev" type="button" aria-label="Попередній відгук">&#8249;</button>
+      <button class="rev-arrow next" type="button" aria-label="Наступний відгук">&#8250;</button>
+      <div id="reviews-track">
+      <div class="rev-card"><img src="images/review_01.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 1" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_02.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 2" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_03.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 3" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_04.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 4" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_05.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 5" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_06.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 6" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_07.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 7" loading="lazy" decoding="async"></div>
+      <div class="rev-card"><img src="images/review_08.jpg" alt="Відгук гостя про відпочинок у «Темп Дніпра» — 8" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -859,24 +1363,25 @@
     <div class="row">
       <div class="col-8">
         <div id="contact-map">
+          <div id="map-shield"><span>Торкніться, щоб керувати картою</span></div>
           <iframe src="https://www.google.com/maps?q=Temp+Dnipra,+%D0%92%D0%B8%D1%88%D0%B3%D0%BE%D1%80%D0%BE%D0%B4&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Temp Dnipra на карті"></iframe>
         </div>
       </div>
       <div class="col-4">
         <div id="contact-info">
           <div class="contact-eyebrow">Контакти</div>
-          <div class="contact-title">Як нас знайти</div>
+          <h2 class="contact-title">Як нас знайти</h2>
           <div id="contact-rows">
             <div class="contact-row">
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FFBE00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span>
+              <span class="contact-icon"><img src="images/506ddad40847.png" alt="Локація"></span>
               <span class="contact-text">Вишгород, вул. Садова, 3</span>
             </div>
             <div class="contact-row">
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FFBE00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.8 2.1z"/></svg></span>
-              <a href="tel:+380689772777">068 977 2777</a>
+              <span class="contact-icon"><img src="images/98d5b8152ee0.png" alt="Телефон"></span>
+              <a href="tel:+380689772777">+38 068 977 2777</a>
             </div>
             <div class="contact-row">
-              <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FFBE00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="#FFBE00" stroke="none"/></svg></span>
+              <span class="contact-icon"><img src="images/Icon_instagram.png" alt="Instagram"></span>
               <a href="https://www.instagram.com/temp_dnipra" target="_blank" rel="noopener">@temp_dnipra</a>
             </div>
           </div>
@@ -892,14 +1397,14 @@
       <a id="footer-logo-link" href="#hero" aria-label="На головну"><img id="footer-logo" src="images/8096c7828543.png" alt="Темп Дніпра"></a>
       <nav id="footer-nav">
         <a href="#hero">Головна</a>
-        <a href="#screen3">Про нас</a>
+        <a href="#screen3">Про нас</a>
         <a href="#screen6">Будиночки</a>
-        <a href="#screen7">Чани та мангали</a>
+        <a href="#screen7">Чани та мангали</a>
         <a href="#screen8">Контакти</a>
       </nav>
     </div>
     <div id="footer-bottom">
-      <div class="footer-copy">© 2026 Темп Дніпра. Всі права захищені.</div>
+      <div class="footer-copy">© 2026 Темп Дніпра. Усі права захищено.</div>
     </div>
   </div>
 </footer>
@@ -920,12 +1425,12 @@
       <div class="modal-spec" id="modal-spec"></div>
       <div class="modal-desc" id="modal-desc"></div>
       <div class="modal-amenities">
-        <div class="modal-amenity-row"><img src="images/160653cf54a3.png" alt=""><span>Двоспальне ліжко<br>з панорамним вікном</span></div>
-        <div class="modal-amenity-row"><img src="images/7f8c15a6d623.png" alt=""><span>Кондиціонер<br>у кожному будиночку</span></div>
-        <div class="modal-amenity-row"><img src="images/3f48a4445402.png" alt=""><span>Мікрохвильова піч, холодильник,<br>чайник, кавомашина, посуд, чай/кава</span></div>
-        <div class="modal-amenity-row"><img src="images/cd7c948c6ad3.png" alt=""><span>Душ, фен, косметичні набори,<br>рушники, халати, капці</span></div>
-        <div class="modal-amenity-row"><img src="images/ad5163e542a7.png" alt=""><span>Затишна крита альтанка на терасі зі<br>столом та двома диванчиками</span></div>
-        <div class="modal-amenity-row"><img src="images/1359e6415ed9.png" alt=""><span>Мангал, решітки<br>та шампури</span></div>
+        <div class="modal-amenity-row"><img src="images/160653cf54a3.png" alt=""><span>Двоспальне ліжко <br>з панорамним вікном</span></div>
+        <div class="modal-amenity-row"><img src="images/7f8c15a6d623.png" alt=""><span>Кондиціонер <br>у кожному будиночку</span></div>
+        <div class="modal-amenity-row"><img src="images/3f48a4445402.png" alt=""><span>Мікрохвильова піч, холодильник, <br>чайник, кавомашина, посуд, чай/кава</span></div>
+        <div class="modal-amenity-row"><img src="images/cd7c948c6ad3.png" alt=""><span>Душ, фен, косметичні набори, <br>рушники, халати, капці</span></div>
+        <div class="modal-amenity-row"><img src="images/ad5163e542a7.png" alt=""><span>Затишна крита альтанка на терасі зі <br>столом та двома диванчиками</span></div>
+        <div class="modal-amenity-row"><img src="images/1359e6415ed9.png" alt=""><span>Мангал, решітки <br>та шампури</span></div>
       </div>
       </div>
       <div class="modal-btn-row">
@@ -942,6 +1447,171 @@
     <video id="modal-video-el" controls playsinline src="images/bb6edb1eb232.mp4"></video>
   </div>
 </div>
+
+<script>
+/* Спільне вікно перегляду фото на весь екран (відгуки, чани) */
+(function () {
+  var lb = document.createElement('div');
+  lb.id = 'rev-lightbox';
+  lb.innerHTML = '<img alt=""><div id="rev-lightbox-hint">Торкніться будь-де, щоб закрити</div>';
+  document.body.appendChild(lb);
+  var img = lb.querySelector('img');
+  function open(src) {
+    if (!src) return;
+    img.src = src;
+    lb.classList.add('open');
+    requestAnimationFrame(function () { lb.classList.add('show'); });
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(function () { lb.classList.remove('open'); }, 280);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  window.TDLightbox = { open: open, close: close };
+})();
+</script>
+
+<script>
+/* Індикатор прокрутки сторінки */
+(function () {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  var ticking = false;
+  function draw() {
+    ticking = false;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = Math.max(0, Math.min(100, p)) + '%';
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(draw); }
+  });
+  window.addEventListener('resize', draw);
+  draw();
+})();
+</script>
+
+<script>
+/* Плавна поява блоків при скролі */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var GROUPS = [
+    ['#screen3 .feat-card', 'reveal-soft', 60],
+    ['#big-quote', 'reveal', 0],
+    ['#amenities-title-top', 'reveal', 0],
+    ['#amenities-card', 'reveal', 0],
+    ['#photo-slider', 'reveal', 90],
+    ['#houses-grid .house-card', 'reveal', 70],
+    ['#chan-text .chan-title, #chan-text .chan-accent, #chan-text .chan-desc, #chan-text .btn', 'reveal', 80],
+    ['#reviews-head > div', 'reveal', 80],
+    ['#reviews-track .rev-card', 'reveal-soft', 45],
+    ['#contact-info > *', 'reveal', 70],
+    ['#footer-top, #footer-bottom', 'reveal', 90]
+  ];
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var d = parseInt(el.getAttribute('data-rd') || '0', 10);
+      setTimeout(function () { el.classList.add('in'); }, d);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  GROUPS.forEach(function (g) {
+    var els = document.querySelectorAll(g[0]);
+    els.forEach(function (el, i) {
+      el.classList.add(g[1]);
+      el.setAttribute('data-rd', String(Math.min(i, 6) * g[2]));
+      io.observe(el);
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var track = document.getElementById('reviews-track');
+  if (!track) return;
+  var prev = document.querySelector('.rev-arrow.prev');
+  var next = document.querySelector('.rev-arrow.next');
+  function step() {
+    var card = track.querySelector('.rev-card');
+    if (!card) return track.clientWidth;
+    return card.getBoundingClientRect().width + 16;
+  }
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+  function go(dir) {
+    var s = step(), max = maxScroll(), x = track.scrollLeft;
+    if (dir > 0 && x >= max - 2) track.scrollTo({ left: 0, behavior: 'smooth' });          /* з кінця — на початок */
+    else if (dir < 0 && x <= 2) track.scrollTo({ left: max, behavior: 'smooth' });          /* з початку — в кінець */
+    else track.scrollBy({ left: dir * s, behavior: 'smooth' });
+  }
+  if (prev) prev.addEventListener('click', function () { go(-1); });
+  if (next) next.addEventListener('click', function () { go(1); });
+
+  var ignoreScroll = false, scrollTimer = null;
+  var cards = track.querySelectorAll('.rev-card');
+
+  /* Крапки-індикатори: видно, скільки всього відгуків і де ти зараз */
+  var dotsWrap = document.createElement('div');
+  dotsWrap.id = 'rev-dots';
+  cards.forEach(function (c, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'rev-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Відгук ' + (i + 1));
+    d.addEventListener('click', function () {
+      track.scrollTo({ left: i * step(), behavior: 'smooth' });
+    });
+    dotsWrap.appendChild(d);
+  });
+  track.parentNode.appendChild(dotsWrap);
+  var dots = dotsWrap.querySelectorAll('.rev-dot');
+
+  function syncDots() {
+    var s = step();
+    var i = s > 0 ? Math.round(track.scrollLeft / s) : 0;
+    i = Math.max(0, Math.min(dots.length - 1, i));
+    dots.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+  }
+  track.addEventListener('scroll', syncDots, { passive: true });
+  window.addEventListener('resize', syncDots);
+  syncDots();
+  function clearZoom(except) {
+    cards.forEach(function (c) { if (c !== except) c.classList.remove('zoomed'); });
+  }
+  function openLightbox(src) { if (window.TDLightbox) window.TDLightbox.open(src); }
+  function closeLightbox() { if (window.TDLightbox) window.TDLightbox.close(); }
+
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (window.innerWidth <= 1024) {
+        var im = card.querySelector('img');
+        if (im) openLightbox(im.getAttribute('src'));
+        return;
+      }
+      var on = card.classList.contains('zoomed');
+      clearZoom(card);
+      card.classList.toggle('zoomed', !on);
+      if (!on) {
+        ignoreScroll = true;
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () { ignoreScroll = false; }, 800);
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clearZoom(null); });
+  track.addEventListener('scroll', function () { if (!ignoreScroll) clearZoom(null); });
+})();
+</script>
 
 <script>
 (function () {
@@ -1063,24 +1733,40 @@
 
 /* Підміна фото на вертикальному мобільному (якщо є мобільна версія файлу) */
 (function () {
-  var mq = window.matchMedia('(max-width: 540px) and (orientation: portrait)');
   var imgs = document.querySelectorAll('img[data-mobile]');
+  if (!imgs.length) return;
   var checked = {};
+
+  function wantsMobile() {
+    var v = getComputedStyle(document.documentElement).getPropertyValue('--vertical-photos');
+    return String(v).trim() === '1';
+  }
+
   function pick() {
+    var mobile = wantsMobile();
     imgs.forEach(function (img) {
-      var want = mq.matches ? img.getAttribute('data-mobile') : img.getAttribute('data-desktop');
+      var want = mobile ? img.getAttribute('data-mobile') : img.getAttribute('data-desktop');
       if (!want || img.getAttribute('src') === want) return;
       if (checked[want] === false) return;
       if (checked[want] === true) { img.src = want; return; }
       var probe = new Image();
-      probe.onload = function () { checked[want] = true; if ((mq.matches ? img.getAttribute('data-mobile') : img.getAttribute('data-desktop')) === want) img.src = want; };
+      probe.onload = function () {
+        checked[want] = true;
+        var still = wantsMobile() ? img.getAttribute('data-mobile') : img.getAttribute('data-desktop');
+        if (still === want) img.src = want;
+      };
       probe.onerror = function () { checked[want] = false; };
       probe.src = want;
     });
   }
+
+  var t = null;
+  function onResize() { clearTimeout(t); t = setTimeout(pick, 120); }
+
   pick();
-  if (mq.addEventListener) mq.addEventListener('change', pick);
-  else if (mq.addListener) mq.addListener(pick);
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', onResize);
+  window.addEventListener('load', pick);
 })();
 
 (function () {
@@ -1128,11 +1814,19 @@
       slider.style.width = '';
       slider.style.height = '';
       var w = slider.getBoundingClientRect().width;
-      if (w > 0) slider.style.height = (w * 0.72) + 'px';
-    } else if (window.innerWidth <= 1024) {
-      /* планшет: слайдер тягнеться на всю висоту картки — верх і низ врівень */
+      if (w > 0) slider.style.height = w + 'px';
+    } else if (window.innerWidth <= 768 && window.matchMedia('(orientation: portrait)').matches) {
+      /* вертикальний планшет: слайдер під карткою — квадратний */
       slider.style.width = '';
       slider.style.height = '';
+      var wp = slider.getBoundingClientRect().width;
+      if (wp > 0) slider.style.height = wp + 'px';
+    } else if (window.innerWidth <= 1024) {
+      /* планшет / горизонтальний телефон: слайдер рівно на висоту картки */
+      slider.style.width = '';
+      slider.style.height = '';
+      var hc = card.getBoundingClientRect().height;
+      if (hc > 0) slider.style.height = hc + 'px';
     } else {
       var h = card.getBoundingClientRect().height;
       if (h > 0) {
@@ -1235,6 +1929,17 @@
 
   viewport.addEventListener('mouseenter', function () { paused = true; });
   viewport.addEventListener('mouseleave', function () { paused = false; lastTs = null; });
+  viewport.addEventListener('touchend', function () { paused = false; lastTs = null; }, { passive: true });
+
+  /* На телефонах і планшетах — фото відкривається на весь екран */
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (window.innerWidth > 1024) return;
+      var im = card.querySelector('img');
+      if (im && window.TDLightbox) window.TDLightbox.open(im.getAttribute('src'));
+    });
+  });
+
 
   function tick(ts) {
     if (!paused && setWidth > 0) {
@@ -1253,8 +1958,39 @@
 })();
 
 (function () {
-  var poolSection = document.getElementById('screen5');
-  var poolOverlay = document.getElementById('pool-overlay');
+  var pairs = [
+    ['screen5', 'pool-overlay'],
+    ['screen9', 'pet-overlay']
+  ].map(function (p) {
+    return { sec: document.getElementById(p[0]), ov: document.getElementById(p[1]) };
+  }).filter(function (p) { return p.sec && p.ov; });
+  if (!pairs.length) return;
+
+  var lastY = window.scrollY;
+  var busy = false;
+
+  function tickReveal() {
+    busy = false;
+    var y = window.scrollY;
+    var dir = y > lastY ? 'down' : (y < lastY ? 'up' : null);
+    lastY = y;
+    if (!dir) return;
+    var mid = window.innerHeight / 2;
+    pairs.forEach(function (p) {
+      var top = p.sec.getBoundingClientRect().top;
+      if (dir === 'down' && top <= mid) p.ov.classList.add('show');
+      else if (dir === 'up' && top > mid) p.ov.classList.remove('show');
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!busy) { busy = true; requestAnimationFrame(tickReveal); }
+  });
+})();
+
+(function () {
+  var poolSection = null;
+  var poolOverlay = null;
   if (!poolSection || !poolOverlay) return;
 
   var lastScrollY = window.scrollY;
@@ -1299,10 +2035,46 @@
   }
   document.querySelector('.slide-arrow.prev').addEventListener('click', function () { show(idx - 1); });
   document.querySelector('.slide-arrow.next').addEventListener('click', function () { show(idx + 1); });
-  setInterval(function () { show(idx + 1); }, 5000);
+
+  /* Свайп пальцем ліворуч / праворуч */
+  var box = document.getElementById('photo-slider');
+  if (box) {
+    var sx = 0, sy = 0, moved = false, paused = false;
+    box.addEventListener('touchstart', function (e) {
+      var t = e.changedTouches[0];
+      sx = t.clientX; sy = t.clientY; moved = false; paused = true;
+    }, { passive: true });
+    box.addEventListener('touchmove', function () { moved = true; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx, dy = t.clientY - sy;
+      paused = false;
+      if (!moved) return;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        show(dx < 0 ? idx + 1 : idx - 1);
+      }
+    }, { passive: true });
+    box.addEventListener('mouseenter', function () { paused = true; });
+    box.addEventListener('mouseleave', function () { paused = false; });
+    setInterval(function () { if (!paused) show(idx + 1); }, 5000);
+  } else {
+    setInterval(function () { show(idx + 1); }, 5000);
+  }
 })();
 (function () {
-  var HOUSES = {"1": {"title": "Будиночок №1", "spec": "2 гостей · власний вихід до річки · чан", "desc": "Окремий будиночок із власним виходом до річки. Гойдалка під деревом, чан на терасі, крита зона з мʼяким диваном та окремий мангал-казан — усе для тихого відпочинку вдвох.", "photos": ["images/584ea0f951f8.jpg", "images/97977f3ffff2.jpg", "images/e5872e842aae.jpg", "images/69d8d4ab099d.jpg", "images/9bbbb533b0b7.jpg", "images/8ef0d538c6ff.jpg"]}, "2": {"title": "Будиночок №2", "spec": "2 гостей · спільна тераса з №3", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №3 для компанії від 4 осіб.", "photos": ["images/f1959c42ec50.jpg", "images/c81db5be0410.jpg", "images/17c4b7853c75.jpg", "images/f561670e9404.jpg", "images/bc54a3376374.jpg"]}, "3": {"title": "Будиночок №3", "spec": "2 гостей · спільна тераса з №2", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №2 для компанії від 4 осіб.", "photos": ["images/012cd6d6d5bf.jpg", "images/8f49cd814ec0.jpg", "images/45118bf592e6.jpg", "images/5303c9627893.jpg", "images/7d5804fe78f8.jpg"]}, "4": {"title": "Будиночок №4", "spec": "2 гостей · велика тераса · чан", "desc": "Найбільший будиночок із просторою терасою для святкувань (до 12 осіб): довгий стіл під тентом, альтанка з «папасан»-кріслами, окремий чан з видом на річку та власний спуск до пляжу.", "photos": ["images/4144a119d1d6.jpg", "images/04cee4509b34.jpg", "images/4f2815dadd74.jpg", "images/aba854329466.jpg", "images/29b13555df41.jpg", "images/1a7200c0e6a6.jpg"]}, "5": {"title": "Будиночок №5", "spec": "2 гостей · спільна тераса з №6", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №6 для сімей та компаній.", "photos": ["images/032e145c66a6.jpg", "images/bd991134d859.jpg", "images/9cc6fec920cc.jpg", "images/5c9c8af3a7d3.jpg", "images/4d8ef3135e77.jpg"]}, "6": {"title": "Будиночок №6", "spec": "2 гостей · спільна тераса з №5", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №5 для сімей та компаній.", "photos": ["images/d3360bc5d02e.jpg", "images/4ded44efeb8e.jpg", "images/b2a047df5155.jpg", "images/26376ead3425.jpg", "images/6b63f5a33b01.jpg", "images/b34d12deff78.jpg"]}};
+  var HOUSES = {"1": {"video": "house_01.mp4", "title": "Будиночок №1", "spec": "2 гостей · власний вихід до річки · чан", "desc": "Окремий будиночок із власним виходом до річки. Гойдалка під деревом, чан на терасі, крита зона з мʼяким диваном та окремий мангал-казан — усе для тихого відпочинку вдвох.", "photos": ["images/584ea0f951f8.jpg", "images/97977f3ffff2.jpg", "images/e5872e842aae.jpg", "images/69d8d4ab099d.jpg", "images/9bbbb533b0b7.jpg", "images/8ef0d538c6ff.jpg"]}, "2": {"video": "house_02.mp4", "title": "Будиночок №2", "spec": "2 гостей · спільна тераса з №3", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №3 для компанії від 4 осіб.", "photos": ["images/f1959c42ec50.jpg", "images/c81db5be0410.jpg", "images/17c4b7853c75.jpg", "images/f561670e9404.jpg", "images/bc54a3376374.jpg"]}, "3": {"video": "house_03.mp4", "title": "Будиночок №3", "spec": "2 гостей · спільна тераса з №2", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №2 для компанії від 4 осіб.", "photos": ["images/012cd6d6d5bf.jpg", "images/8f49cd814ec0.jpg", "images/45118bf592e6.jpg", "images/5303c9627893.jpg", "images/7d5804fe78f8.jpg"]}, "4": {"video": "house_04.mp4", "title": "Будиночок №4", "spec": "2 гостей · велика тераса · чан", "desc": "Найбільший будиночок із просторою терасою для святкувань (до 12 осіб): довгий стіл під тентом, альтанка з «папасан»-кріслами, окремий чан з видом на річку та власний спуск до пляжу.", "photos": ["images/4144a119d1d6.jpg", "images/04cee4509b34.jpg", "images/4f2815dadd74.jpg", "images/aba854329466.jpg", "images/29b13555df41.jpg", "images/1a7200c0e6a6.jpg"]}, "5": {"video": "house_05.mp4", "title": "Будиночок №5", "spec": "2 гостей · спільна тераса з №6", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №6 для сімей та компаній.", "photos": ["images/032e145c66a6.jpg", "images/bd991134d859.jpg", "images/9cc6fec920cc.jpg", "images/5c9c8af3a7d3.jpg", "images/4d8ef3135e77.jpg"]}, "6": {"video": "house_06.mp4", "title": "Будиночок №6", "spec": "2 гостей · спільна тераса з №5", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №5 для сімей та компаній.", "photos": ["images/d3360bc5d02e.jpg", "images/4ded44efeb8e.jpg", "images/b2a047df5155.jpg", "images/26376ead3425.jpg", "images/6b63f5a33b01.jpg", "images/b34d12deff78.jpg"]}};
+
+  /* Підказка «Подивитись» на картках — щоб на телефоні було зрозуміло, що картка відкривається */
+  (function () {
+    document.querySelectorAll('.house-card').forEach(function (card) {
+      var cap = card.querySelector('.house-cap');
+      if (!cap || cap.querySelector('.house-cta')) return;
+      var cta = document.createElement('span');
+      cta.className = 'house-cta';
+      cta.innerHTML = 'ПОДИВИТИСЬ<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+      cap.appendChild(cta);
+    });
+  })();
 
   var modal = document.getElementById('house-modal');
   var closeBtn = document.getElementById('modal-close-btn');
@@ -1361,6 +2133,22 @@
     descEl.textContent = h.desc;
     currentPhotos = h.photos;
     renderGallery();
+
+    /* Кнопка «ВІДЕО» — лише для будиночків, у яких воно є */
+    var vbtn = document.getElementById('modal-video-btn');
+    var vel = document.getElementById('modal-video-el');
+    if (vbtn) {
+      if (h.video) {
+        vbtn.style.display = '';
+        if (vel && vel.getAttribute('src') !== h.video) {
+          vel.setAttribute('src', h.video);
+          vel.load();
+        }
+      } else {
+        vbtn.style.display = 'none';
+      }
+    }
+
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(function () {
@@ -1391,6 +2179,24 @@
   closeBtn.addEventListener('click', closeModal);
   prevBtn.addEventListener('click', function () { showSlide(currentIdx - 1); });
   nextBtn.addEventListener('click', function () { showSlide(currentIdx + 1); });
+
+  /* Свайп пальцем по галереї будиночка */
+  (function () {
+    var sx = 0, sy = 0, moved = false;
+    mainEl.addEventListener('touchstart', function (e) {
+      var t = e.changedTouches[0];
+      sx = t.clientX; sy = t.clientY; moved = false;
+    }, { passive: true });
+    mainEl.addEventListener('touchmove', function () { moved = true; }, { passive: true });
+    mainEl.addEventListener('touchend', function (e) {
+      if (!moved) return;
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        showSlide(dx < 0 ? currentIdx + 1 : currentIdx - 1);
+      }
+    }, { passive: true });
+  })();
 
   modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
@@ -1428,5 +2234,21 @@
   });
 })();
 </script>
+<script>
+/* Карта не «перехоплює» прокрутку сторінки на телефоні: вмикається лише після дотику */
+(function () {
+  var shield = document.getElementById('map-shield');
+  if (!shield) return;
+  var off = false;
+  shield.addEventListener('click', function () {
+    shield.style.display = 'none';
+    off = true;
+  });
+  window.addEventListener('scroll', function () {
+    if (off) { shield.style.display = ''; off = false; }
+  }, { passive: true });
+})();
+</script>
+
 </body>
 </html>
