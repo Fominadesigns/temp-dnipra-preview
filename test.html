@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Адаптив-тест</title>
+<style>
+  body { font-family: monospace; background: #111; color: #eee; padding: 16px; }
+  .wrap { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .col { border: 1px solid #444; }
+  .col h3 { font-size: 12px; padding: 6px; margin: 0; background: #222; }
+  iframe { border: 0; display: block; height: 700px; }
+  #out { white-space: pre; margin-top: 20px; font-size: 12px; }
+</style>
+</head>
+<body>
+<h2>Тест адаптиву</h2>
+<div class="wrap" id="wrap"></div>
+<div id="out">Завантаження…</div>
+<script>
+var WIDTHS = [320, 375, 412, 600, 768, 1024, 1280, 1440];
+var wrap = document.getElementById('wrap');
+WIDTHS.forEach(function (w) {
+  var col = document.createElement('div');
+  col.className = 'col';
+  col.innerHTML = '<h3>' + w + 'px</h3>';
+  var f = document.createElement('iframe');
+  f.src = 'index.html';
+  f.width = w;
+  f.setAttribute('data-w', w);
+  col.appendChild(f);
+  wrap.appendChild(col);
+});
+
+function report() {
+  var out = [];
+  document.querySelectorAll('iframe').forEach(function (f) {
+    var w = f.getAttribute('data-w');
+    try {
+      var d = f.contentDocument;
+      if (!d) { out.push(w + 'px: немає доступу'); return; }
+      var de = d.documentElement;
+      var overflow = de.scrollWidth - de.clientWidth;
+      var offenders = [];
+      if (overflow > 1) {
+        d.querySelectorAll('body *').forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.width > 0 && (r.right > de.clientWidth + 1 || r.left < -1)) {
+            var st = f.contentWindow.getComputedStyle(el);
+            if (st.position === 'fixed') return;
+            offenders.push(
+              (el.id ? '#' + el.id : el.className ? '.' + String(el.className).split(' ')[0] : el.tagName) +
+              ' [' + Math.round(r.left) + '→' + Math.round(r.right) + ']'
+            );
+          }
+        });
+      }
+      out.push(w + 'px: scrollW=' + de.scrollWidth + ' clientW=' + de.clientWidth +
+        ' overflow=' + overflow + (offenders.length ? '\n    ' + offenders.slice(0, 8).join('\n    ') : ' ✓'));
+    } catch (e) {
+      out.push(w + 'px: помилка — ' + e.message);
+    }
+  });
+  document.getElementById('out').textContent = out.join('\n');
+  window.__RESULT__ = out.join('\n');
+}
+window.addEventListener('load', function () { setTimeout(report, 2500); });
+</script>
+</body>
+</html>
