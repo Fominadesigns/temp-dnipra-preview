@@ -541,7 +541,7 @@
   .col-11 { flex: 0 0 91.6667%; max-width: 91.6667%; padding: 0 12px; box-sizing: border-box; }
   .col-12 { flex: 0 0 100%; max-width: 100%; padding: 0 12px; box-sizing: border-box; }
 
-  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 140px 0; }
+  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 40px 0 140px; }
   #screen8 .row { min-height: 280px; align-items: stretch; }
   #contact-map { width: 100%; height: 100%; min-height: 200px; overflow: hidden; }
   #contact-map iframe { width: 100%; height: 100%; min-height: 200px; border: 0; display: block; }
@@ -683,7 +683,7 @@
     /* Вертикальні відступи секцій */
     #screen3, #screen6 { padding: 130px 0; }
     #screen4, #screen7 { padding-bottom: 130px; }
-    #screen8 { padding: 110px 0; }
+    #screen8 { padding: 30px 0 110px; }
 
     /* Велика цитата */
     #big-quote { line-height: 1.42; }
@@ -1891,7 +1891,7 @@
   }
 })();
 (function () {
-  var HOUSES = {"1": {"title": "Будиночок №1", "spec": "2 гостей · власний вихід до річки · чан", "desc": "Окремий будиночок із власним виходом до річки. Гойдалка під деревом, чан на терасі, крита зона з мʼяким диваном та окремий мангал-казан — усе для тихого відпочинку вдвох.", "photos": ["images/584ea0f951f8.jpg", "images/97977f3ffff2.jpg", "images/e5872e842aae.jpg", "images/69d8d4ab099d.jpg", "images/9bbbb533b0b7.jpg", "images/8ef0d538c6ff.jpg"]}, "2": {"title": "Будиночок №2", "spec": "2 гостей · спільна тераса з №3", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №3 для компанії від 4 осіб.", "photos": ["images/f1959c42ec50.jpg", "images/c81db5be0410.jpg", "images/17c4b7853c75.jpg", "images/f561670e9404.jpg", "images/bc54a3376374.jpg"]}, "3": {"title": "Будиночок №3", "spec": "2 гостей · спільна тераса з №2", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №2 для компанії від 4 осіб.", "photos": ["images/012cd6d6d5bf.jpg", "images/8f49cd814ec0.jpg", "images/45118bf592e6.jpg", "images/5303c9627893.jpg", "images/7d5804fe78f8.jpg"]}, "4": {"title": "Будиночок №4", "spec": "2 гостей · велика тераса · чан", "desc": "Найбільший будиночок із просторою терасою для святкувань (до 12 осіб): довгий стіл під тентом, альтанка з «папасан»-кріслами, окремий чан з видом на річку та власний спуск до пляжу.", "photos": ["images/4144a119d1d6.jpg", "images/04cee4509b34.jpg", "images/4f2815dadd74.jpg", "images/aba854329466.jpg", "images/29b13555df41.jpg", "images/1a7200c0e6a6.jpg"]}, "5": {"title": "Будиночок №5", "spec": "2 гостей · спільна тераса з №6", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №6 для сімей та компаній.", "photos": ["images/032e145c66a6.jpg", "images/bd991134d859.jpg", "images/9cc6fec920cc.jpg", "images/5c9c8af3a7d3.jpg", "images/4d8ef3135e77.jpg"]}, "6": {"title": "Будиночок №6", "spec": "2 гостей · спільна тераса з №5", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №5 для сімей та компаній.", "photos": ["images/d3360bc5d02e.jpg", "images/4ded44efeb8e.jpg", "images/b2a047df5155.jpg", "images/26376ead3425.jpg", "images/6b63f5a33b01.jpg", "images/b34d12deff78.jpg"]}};
+  var HOUSES = {"1": {"video": "images/house_01.mp4", "title": "Будиночок №1", "spec": "2 гостей · власний вихід до річки · чан", "desc": "Окремий будиночок із власним виходом до річки. Гойдалка під деревом, чан на терасі, крита зона з мʼяким диваном та окремий мангал-казан — усе для тихого відпочинку вдвох.", "photos": ["images/584ea0f951f8.jpg", "images/97977f3ffff2.jpg", "images/e5872e842aae.jpg", "images/69d8d4ab099d.jpg", "images/9bbbb533b0b7.jpg", "images/8ef0d538c6ff.jpg"]}, "2": {"video": "images/house_02.mp4", "title": "Будиночок №2", "spec": "2 гостей · спільна тераса з №3", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №3 для компанії від 4 осіб.", "photos": ["images/f1959c42ec50.jpg", "images/c81db5be0410.jpg", "images/17c4b7853c75.jpg", "images/f561670e9404.jpg", "images/bc54a3376374.jpg"]}, "3": {"video": "images/house_03.mp4", "title": "Будиночок №3", "spec": "2 гостей · спільна тераса з №2", "desc": "Затишний будиночок зі спільною терасою (розділена кадушками з туями) і видом на річку та затоку з човнами. Можна орендувати разом із будиночком №2 для компанії від 4 осіб.", "photos": ["images/012cd6d6d5bf.jpg", "images/8f49cd814ec0.jpg", "images/45118bf592e6.jpg", "images/5303c9627893.jpg", "images/7d5804fe78f8.jpg"]}, "4": {"video": "images/house_04.mp4", "title": "Будиночок №4", "spec": "2 гостей · велика тераса · чан", "desc": "Найбільший будиночок із просторою терасою для святкувань (до 12 осіб): довгий стіл під тентом, альтанка з «папасан»-кріслами, окремий чан з видом на річку та власний спуск до пляжу.", "photos": ["images/4144a119d1d6.jpg", "images/04cee4509b34.jpg", "images/4f2815dadd74.jpg", "images/aba854329466.jpg", "images/29b13555df41.jpg", "images/1a7200c0e6a6.jpg"]}, "5": {"video": "images/house_05.mp4", "title": "Будиночок №5", "spec": "2 гостей · спільна тераса з №6", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №6 для сімей та компаній.", "photos": ["images/032e145c66a6.jpg", "images/bd991134d859.jpg", "images/9cc6fec920cc.jpg", "images/5c9c8af3a7d3.jpg", "images/4d8ef3135e77.jpg"]}, "6": {"video": "images/house_06.mp4", "title": "Будиночок №6", "spec": "2 гостей · спільна тераса з №5", "desc": "Будиночок зі спільною терасою і видом на басейн та дитячий майданчик. Можна орендувати разом із будиночком №5 для сімей та компаній.", "photos": ["images/d3360bc5d02e.jpg", "images/4ded44efeb8e.jpg", "images/b2a047df5155.jpg", "images/26376ead3425.jpg", "images/6b63f5a33b01.jpg", "images/b34d12deff78.jpg"]}};
 
   /* Підказка «Подивитись» на картках — щоб на телефоні було зрозуміло, що картка відкривається */
   (function () {
@@ -1962,6 +1962,22 @@
     descEl.textContent = h.desc;
     currentPhotos = h.photos;
     renderGallery();
+
+    /* Кнопка «ВІДЕО» — лише для будиночків, у яких воно є */
+    var vbtn = document.getElementById('modal-video-btn');
+    var vel = document.getElementById('modal-video-el');
+    if (vbtn) {
+      if (h.video) {
+        vbtn.style.display = '';
+        if (vel && vel.getAttribute('src') !== h.video) {
+          vel.setAttribute('src', h.video);
+          vel.load();
+        }
+      } else {
+        vbtn.style.display = 'none';
+      }
+    }
+
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     requestAnimationFrame(function () {
