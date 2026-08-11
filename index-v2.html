@@ -162,13 +162,13 @@
     position: relative; z-index: 9; overflow-x: hidden;
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F;
     display: flex; flex-direction: column;
-    padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0;
+    padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0;
   }
   #feat-viewport { width: 100%; overflow: hidden; }
   #feat-track { display: flex; gap: 14px; will-change: transform; }
   #big-quote-wrap {
     flex: 1; display: flex; align-items: center; justify-content: center;
-    margin-top: clamp(70px, calc(-3.846px + 9.6154vw), 150px);
+    margin-top: clamp(110px, calc(-5.77px + 14.42vw), 225px);
   }
   #big-quote {
     text-align: center; font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: -0.012em;
@@ -177,11 +177,12 @@
   #big-quote .bq-line { display: block; white-space: nowrap; }
   #big-quote .gold { color: #FFBE00; }
   .feat-card {
+    padding: 34px 20px;
     background:
       linear-gradient(160deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0) 55%),
       linear-gradient(180deg, #05404a 0%, #04353b 100%);
     border: 1px solid rgba(255,255,255,0.09);
-    border-radius: 0; padding: 26px 14px; text-align: center;
+    border-radius: 0; text-align: center;
     flex: none; box-sizing: border-box;
   }
   .feat-card { position: relative; transition: transform var(--t-mid) var(--ease-out), box-shadow var(--t-mid) var(--ease-out), border-color var(--t-mid) var(--ease-out); }
@@ -198,7 +199,7 @@
   .feat-icon img { height: 46px; width: auto; }
   .feat-icon svg { height: 40px; width: auto; }
 
-  #screen7 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(80px, calc(15.385px + 8.4135vw), 150px); }
+  #screen7 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(120px, calc(23.077px + 12.62vw), 225px); }
   #chan-text { text-align: center; }
   .chan-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; white-space: nowrap; }
   .chan-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
@@ -211,11 +212,11 @@
   .feat-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(13.8px, calc(12.48px + 0.168vw), 15.6px); color: #fff; line-height: 1.3; margin-bottom: 8px; }
   .feat-desc { font-family: 'Golos Text', sans-serif; font-size: clamp(13.8px, calc(12.72px + 0.144vw), 15px); line-height: 1.45; color: rgba(255,255,255,0.65); }
 
-  #screen4 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(80px, calc(15.385px + 8.4135vw), 150px); }
+  #screen4 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 0 0 clamp(120px, calc(23.077px + 12.62vw), 225px); }
   #amenities-wrap.row { align-items: stretch; }
   #amenities-wrap .col-9 { display: flex; padding-right: 0; }
   #amenities-wrap .col-3 { display: flex; justify-content: flex-end; padding-left: 0; }
-  #amenities-card { display: flex; flex-direction: column; flex: 1; min-width: 0; width: 100%;
+  #amenities-card { display: flex; flex-direction: column; flex: 1; min-width: 0; width: 100%; 
     background:
       linear-gradient(155deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 48%),
       linear-gradient(180deg, #053038 0%, #04222a 100%);
@@ -253,7 +254,7 @@
     #amenities-title-top { display: block; text-align: center; margin-bottom: 22px; }
     #amenities-title-top .am-desc { max-width: 640px; margin: 10px auto 0; }
     #amenities-card .am-title, #amenities-card .am-desc { display: none; }
-    #amenities-card { padding: 24px; justify-content: center; }
+    #amenities-card { padding: 36px 32px; justify-content: center; }
     #amenities-wrap .col-9 { flex: 0 0 66.6667%; max-width: 66.6667%; }
     #amenities-wrap .col-3 { flex: 0 0 33.3333%; max-width: 33.3333%; }
     #amenities-wrap .row { align-items: stretch; }
@@ -360,7 +361,11 @@
     .modal-left, .modal-right { max-width: 100%; flex: 1 1 100%; }
   }
 
-  #screen6 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0; }
+  #screen6 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0; }
+  #houses-head { text-align: center; margin-bottom: clamp(34px, calc(12.3px + 2.83vw), 58px); }
+  .houses-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; letter-spacing: -0.01em; color: #fff; }
+  .houses-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); letter-spacing: 0.01em; color: #FFBE00; margin-top: 7px; }
+  .houses-sub { font-family: 'Golos Text', sans-serif; font-size: clamp(15.6px, calc(13.385px + 0.2885vw), 18px); line-height: 1.5; color: rgba(255,255,255,0.82); margin: 18px auto 0; max-width: 640px; }
   #houses-grid .row { margin-bottom: 24px; }
   #houses-grid .row:last-child { margin-bottom: 0; }
   .house-card { background:
@@ -385,12 +390,12 @@
   @media (max-width: 1024px) {
     .house-cta { display: flex; }
   }
-  .house-cap { padding: 20px 22px 24px; }
+  .house-cap { padding: 26px 26px 30px; }
   .house-title { font-family: 'Unbounded', sans-serif; font-weight: 500; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: #fff; margin-bottom: 6px; }
   .house-spec { font-family: 'Golos Text', sans-serif; font-size: clamp(13.2px, calc(10.985px + 0.2885vw), 15.6px); color: rgba(255,255,255,0.65); line-height: 1.4; }
 
   /* ===== ВІДГУКИ ===== */
-  #screen10 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(80px, calc(15.385px + 8.4135vw), 150px) 0; }
+  #screen10 { position: relative; z-index: 9; background: linear-gradient(to bottom, rgba(0,0,0,1) 0px, rgba(0,0,0,0) 260px), #03484F; padding: clamp(120px, calc(23.077px + 12.62vw), 225px) 0; }
   #reviews-head { text-align: center; margin-bottom: clamp(32px, calc(11.538px + 2.6642vw), 54px); }
   .rev-title { font-family: 'Unbounded', sans-serif; font-weight: 500; letter-spacing: -0.01em; font-size: clamp(23px, calc(5.462px + 2.2837vw), 42px); line-height: 1.2; color: #fff; }
   .rev-accent { font-family: 'Unbounded', sans-serif; font-weight: 400; letter-spacing: 0.01em; font-size: clamp(22px, calc(9.077px + 1.6827vw), 36px); color: #FFBE00; margin-top: 7px; }
@@ -420,7 +425,7 @@
   }
   /* Чани: збільшення фото при наведенні / дотику */
   .chan-card { cursor: zoom-in; transition: transform 0.45s cubic-bezier(.2,.7,.26,1), box-shadow 0.45s ease; }
-  #chan-viewport { padding: 90px 0; margin-top: -30px; margin-bottom: -90px; }
+  #chan-viewport { padding: 90px 0; margin-top: 10px; margin-bottom: -90px; }
   @media (hover: hover) and (min-width: 1025px) {
     .chan-card:hover { transform: scale(2); z-index: 6; box-shadow: 0 22px 54px rgba(0,0,0,0.55); }
   }
@@ -444,6 +449,23 @@
     font-family: 'Golos Text', sans-serif; font-size: 12.5px; color: rgba(255,255,255,0.6);
     pointer-events: none;
   }
+  #rev-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 16px; }
+  .rev-dot {
+    width: 7px; height: 7px; flex: none; border: 0; padding: 0; cursor: pointer;
+    background: rgba(255,255,255,0.32); transition: background 0.25s ease, width 0.25s ease;
+  }
+  .rev-dot.active { background: #FFBE00; width: 20px; }
+
+  /* Захист від «залипання» скролу на вбудованій карті */
+  #contact-map { position: relative; }
+  #map-shield { display: none; position: absolute; inset: 0; z-index: 2; cursor: pointer; }
+  #map-shield span {
+    position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+    background: rgba(0,0,0,0.65); color: #fff; font-family: 'Golos Text', sans-serif;
+    font-size: 12.5px; padding: 8px 14px; white-space: nowrap;
+  }
+  @media (max-width: 1024px) { #map-shield { display: block; } }
+
   .rev-arrow {
     position: absolute; top: calc(50% - 7px); transform: translateY(-50%);
     width: 42px; height: 42px; border: none; border-radius: 0;
@@ -460,7 +482,9 @@
   @media (max-width: 767px) {
     .rev-card { width: calc((100% - 12px * 2) / 3); height: 200px; }
     #reviews-track { gap: 12px; }
-    .rev-arrow { display: none; }
+    .rev-arrow { width: 34px; height: 34px; font-size: 19px; background: rgba(0,0,0,0.6); }
+    .rev-arrow.prev { left: -4px; }
+    .rev-arrow.next { right: -4px; }
   }
 
   #screen9 { position: relative; height: 100vh; min-height: 640px; overflow: hidden; z-index: 10; }
@@ -517,7 +541,7 @@
   .col-11 { flex: 0 0 91.6667%; max-width: 91.6667%; padding: 0 12px; box-sizing: border-box; }
   .col-12 { flex: 0 0 100%; max-width: 100%; padding: 0 12px; box-sizing: border-box; }
 
-  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 75px 0; }
+  #screen8 { position: relative; z-index: 9; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), #03484F; padding: 140px 0; }
   #screen8 .row { min-height: 280px; align-items: stretch; }
   #contact-map { width: 100%; height: 100%; min-height: 200px; overflow: hidden; }
   #contact-map iframe { width: 100%; height: 100%; min-height: 200px; border: 0; display: block; }
@@ -534,7 +558,7 @@
   .contact-row a, .contact-row span.contact-text { font-family: 'Golos Text', sans-serif; font-size: clamp(16.8px, calc(13.477px + 0.4327vw), 20.4px); color: rgba(255,255,255,0.92); text-decoration: none; }
   .contact-row a:hover { color: #FFBE00; }
 
-  #site-footer { position: relative; z-index: 9; background: #000000; border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 0 30px; }
+  #site-footer { position: relative; z-index: 9; background: #000000; border-top: 1px solid rgba(255,255,255,0.08); padding: 110px 0 40px; }
   #footer-top { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 24px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   #footer-logo-link { display: block; line-height: 0; transition: opacity 0.2s ease; }
   #footer-logo-link:hover { opacity: 0.8; }
@@ -586,10 +610,12 @@
     #footer-top { gap: 24px; }
 
     /* Карта і контакти — в стовпчик */
-    #screen8 .row { display: block; min-height: 0; margin-left: 0; margin-right: 0; width: 100%; }
+    #screen8 .row { display: flex; flex-direction: column; min-height: 0; margin-left: 0; margin-right: 0; width: 100%; }
+    #screen8 .col-8 { order: 2; }
+    #screen8 .col-4 { order: 1; }
     #screen8 .col-8, #screen8 .col-4 { flex: none; max-width: 100%; width: 100%; padding: 0; }
-    #contact-map { height: 260px; min-height: 260px; }
-    #contact-info { padding-left: 0; margin-top: 26px; height: auto; text-align: center; align-items: center; }
+    #contact-map { height: 260px; min-height: 260px; margin-top: 28px; }
+    #contact-info { padding-left: 0; margin-top: 0; height: auto; text-align: center; align-items: center; }
     #contact-rows { margin-top: 18px; align-items: center; }
     .contact-row { justify-content: center; }
   }
@@ -645,7 +671,7 @@
     .hdr-right .btn svg { width: 10px; height: 10px; }
 
     /* Головний екран */
-    #text-inner { padding: 18px 18px 7vh; }
+    #text-inner { padding: 24px 20px 8vh; }
     .hero-h { font-size: 26px; line-height: 1.14; }
     .hero-accent { font-size: 17px; margin-top: 9px; }
     .hero-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
@@ -655,9 +681,9 @@
     #hero-btn-row .btn, #hero-btn-row .btn-outline { font-size: 14.5px; padding: 15.6px 31px; }
 
     /* Вертикальні відступи секцій */
-    #screen3, #screen6 { padding: 70px 0; }
-    #screen4, #screen7 { padding-bottom: 70px; }
-    #screen8 { padding: 60px 0; }
+    #screen3, #screen6 { padding: 130px 0; }
+    #screen4, #screen7 { padding-bottom: 130px; }
+    #screen8 { padding: 110px 0; }
 
     /* Велика цитата */
     #big-quote { line-height: 1.42; }
@@ -665,7 +691,7 @@
     #big-quote-wrap { margin-top: 54px; }
 
     /* Картки переваг */
-    .feat-card { padding: 20px 12px; }
+    .feat-card { padding: 30px 16px; }
     .feat-icon { height: 38px; margin-bottom: 12px; }
     .feat-icon img, .feat-icon svg { height: 38px; }
     .feat-title { font-size: 14.5px; margin-bottom: 6px; }
@@ -675,7 +701,7 @@
     #amenities-title-top { display: none; }
     #amenities-wrap .row { display: block; margin-left: 0; margin-right: 0; width: 100%; }
     #amenities-wrap .col-9, #amenities-wrap .col-3 { flex: none; max-width: 100%; width: 100%; padding: 0; display: block; }
-    #amenities-card { padding: 24px 20px; }
+    #amenities-card { padding: 34px 26px; }
     #amenities-card .am-title, #amenities-card .am-desc { display: block; }
     .am-title { font-size: 20px; line-height: 1.28; }
     .am-desc { font-size: 15.5px; line-height: 1.45; margin-top: 10px; margin-bottom: 22px; }
@@ -689,24 +715,28 @@
     .slide-arrow.next { right: 10px; }
 
     /* Басейн */
-    #pool-inner { padding: 18px 18px 7vh; }
+    #pool-inner { padding: 24px 20px 8vh; }
     .pool-h2 { font-size: 24px; line-height: 1.22; }
     .pool-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .pool-p br { display: none; }
     #pool-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
 
     /* Pet-friendly */
-    #pet-inner { padding: 18px 18px 7vh; }
+    #pet-inner { padding: 24px 20px 8vh; }
     .pet-h2 { font-size: 24px; line-height: 1.22; }
     .pet-p { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     .pet-p br { display: none; }
     #pet-inner .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
 
+    .houses-title { font-size: 22px; line-height: 1.26; }
+    .houses-accent { font-size: 17px; }
+    .houses-sub { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
+
     /* Будиночки — один стовпчик */
     #houses-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
     #houses-grid .row { display: contents; margin-bottom: 0; }
     #houses-grid .col-4 { flex: none; max-width: none; padding: 0; margin-bottom: 0; }
-    .house-cap { padding: 16px 18px 20px; }
+    .house-cap { padding: 24px 22px 28px; }
     .house-title { font-size: 16px; }
     .house-spec { font-size: 14.5px; line-height: 1.4; }
 
@@ -715,7 +745,7 @@
     .chan-accent { font-size: 17px; }
     .chan-desc { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
     #chan-text .btn { font-size: 14.5px; padding: 15.6px 31px; margin-top: 22px; }
-    #chan-viewport { margin-top: 36px; }
+    #chan-viewport { margin-top: 56px; }
 
     /* Карта і контакти */
     #contact-map { height: 240px; min-height: 240px; }
@@ -727,15 +757,15 @@
     .contact-row a, .contact-row span.contact-text { font-size: 16px; }
 
     /* Відгуки */
-    #screen10 { padding: 70px 0; }
+    #screen10 { padding: 130px 0; }
     .rev-card { width: calc((100% - 10px) / 2); height: 190px; }
     .rev-title { font-size: 22px; line-height: 1.26; }
     .rev-accent { font-size: 17px; }
     .rev-sub { font-size: 15.5px; line-height: 1.45; margin-top: 14px; }
 
     /* Футер */
-    #site-footer { padding: 44px 0 24px; }
-    #footer-top { gap: 20px; padding-bottom: 28px; }
+    #site-footer { padding: 80px 0 30px; }
+    #footer-top { gap: 26px; padding-bottom: 40px; }
     #footer-logo { height: 54px; }
     #footer-nav { gap: 14px 20px; }
     #footer-nav a { font-size: 13.5px; }
@@ -1008,6 +1038,11 @@
 
 <div id="screen6">
   <div class="container">
+    <div id="houses-head">
+      <div class="houses-title">Оберіть свій будиночок</div>
+      <div class="houses-accent">шість варіантів для різного відпочинку</div>
+      <div class="houses-sub">Усі будиночки однакові всередині — різниця лише в терасі, виді та сусідстві. Натисніть на будь-який, щоб побачити фото й деталі</div>
+    </div>
     <div id="houses-grid">
       <div class="row">
       <div class="col-4">
@@ -1159,6 +1194,7 @@
     <div class="row">
       <div class="col-8">
         <div id="contact-map">
+          <div id="map-shield"><span>Торкніться, щоб керувати картою</span></div>
           <iframe src="https://www.google.com/maps?q=Temp+Dnipra,+%D0%92%D0%B8%D1%88%D0%B3%D0%BE%D1%80%D0%BE%D0%B4&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="Temp Dnipra на карті"></iframe>
         </div>
       </div>
@@ -1341,11 +1377,44 @@
     if (!card) return track.clientWidth;
     return card.getBoundingClientRect().width + 16;
   }
-  if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-  if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+  function maxScroll() { return track.scrollWidth - track.clientWidth; }
+  function go(dir) {
+    var s = step(), max = maxScroll(), x = track.scrollLeft;
+    if (dir > 0 && x >= max - 2) track.scrollTo({ left: 0, behavior: 'smooth' });          /* з кінця — на початок */
+    else if (dir < 0 && x <= 2) track.scrollTo({ left: max, behavior: 'smooth' });          /* з початку — в кінець */
+    else track.scrollBy({ left: dir * s, behavior: 'smooth' });
+  }
+  if (prev) prev.addEventListener('click', function () { go(-1); });
+  if (next) next.addEventListener('click', function () { go(1); });
 
   var ignoreScroll = false, scrollTimer = null;
   var cards = track.querySelectorAll('.rev-card');
+
+  /* Крапки-індикатори: видно, скільки всього відгуків і де ти зараз */
+  var dotsWrap = document.createElement('div');
+  dotsWrap.id = 'rev-dots';
+  cards.forEach(function (c, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'rev-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Відгук ' + (i + 1));
+    d.addEventListener('click', function () {
+      track.scrollTo({ left: i * step(), behavior: 'smooth' });
+    });
+    dotsWrap.appendChild(d);
+  });
+  track.parentNode.appendChild(dotsWrap);
+  var dots = dotsWrap.querySelectorAll('.rev-dot');
+
+  function syncDots() {
+    var s = step();
+    var i = s > 0 ? Math.round(track.scrollLeft / s) : 0;
+    i = Math.max(0, Math.min(dots.length - 1, i));
+    dots.forEach(function (d, k) { d.classList.toggle('active', k === i); });
+  }
+  track.addEventListener('scroll', syncDots, { passive: true });
+  window.addEventListener('resize', syncDots);
+  syncDots();
   function clearZoom(except) {
     cards.forEach(function (c) { if (c !== except) c.classList.remove('zoomed'); });
   }
@@ -1924,6 +1993,24 @@
   prevBtn.addEventListener('click', function () { showSlide(currentIdx - 1); });
   nextBtn.addEventListener('click', function () { showSlide(currentIdx + 1); });
 
+  /* Свайп пальцем по галереї будиночка */
+  (function () {
+    var sx = 0, sy = 0, moved = false;
+    mainEl.addEventListener('touchstart', function (e) {
+      var t = e.changedTouches[0];
+      sx = t.clientX; sy = t.clientY; moved = false;
+    }, { passive: true });
+    mainEl.addEventListener('touchmove', function () { moved = true; }, { passive: true });
+    mainEl.addEventListener('touchend', function (e) {
+      if (!moved) return;
+      var t = e.changedTouches[0];
+      var dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+        showSlide(dx < 0 ? currentIdx + 1 : currentIdx - 1);
+      }
+    }, { passive: true });
+  })();
+
   modal.addEventListener('click', function (e) {
     if (e.target === modal) closeModal();
   });
@@ -1960,5 +2047,21 @@
   });
 })();
 </script>
+<script>
+/* Карта не «перехоплює» прокрутку сторінки на телефоні: вмикається лише після дотику */
+(function () {
+  var shield = document.getElementById('map-shield');
+  if (!shield) return;
+  var off = false;
+  shield.addEventListener('click', function () {
+    shield.style.display = 'none';
+    off = true;
+  });
+  window.addEventListener('scroll', function () {
+    if (off) { shield.style.display = ''; off = false; }
+  }, { passive: true });
+})();
+</script>
+
 </body>
 </html>
