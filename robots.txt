@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Пошукові та AI-краулери
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://fominadesigns.github.io/temp-dnipra-preview/sitemap.xml
