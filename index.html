@@ -1809,6 +1809,14 @@
 })();
 
 (function () {
+  /* Стала висота екрана: на телефоні панель адреси то ховається, то з'являється,
+     і innerHeight стрибає — через це слайдер «дихав». Оновлюємо лише при повороті. */
+  var _baseH = window.innerHeight;
+  window.addEventListener('orientationchange', function () {
+    setTimeout(function () { _baseH = window.innerHeight; syncSliderSize(); }, 300);
+  });
+  function baseHeight() { return _baseH; }
+
   var card = document.getElementById('amenities-card');
   var slider = document.getElementById('photo-slider');
   function syncSliderSize() {
@@ -1829,7 +1837,7 @@
       slider.style.width = '';
       slider.style.height = '';
       var col = slider.parentNode ? slider.parentNode.getBoundingClientRect().width : 0;
-      var side = Math.min(col, window.innerHeight * 0.74);
+      var side = Math.min(col, baseHeight() * 0.74);
       if (side > 0) {
         slider.style.width = side + 'px';
         slider.style.height = side + 'px';
@@ -1849,7 +1857,15 @@
     }
   }
   syncSliderSize();
-  window.addEventListener('resize', syncSliderSize);
+  /* реагуємо лише на зміну ширини — зміна висоти від панелі адреси ігнорується */
+  var _lastW = window.innerWidth;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth !== _lastW) {
+      _lastW = window.innerWidth;
+      _baseH = window.innerHeight;
+      syncSliderSize();
+    }
+  });
   window.addEventListener('load', syncSliderSize);
 })();
 
@@ -2067,8 +2083,13 @@
         show(dx < 0 ? idx + 1 : idx - 1);
       }
     }, { passive: true });
-    box.addEventListener('mouseenter', function () { paused = true; });
-    box.addEventListener('mouseleave', function () { paused = false; });
+    /* Пауза лише для миші. На сенсорних екранах mouseenter спрацьовує при дотику
+       й більше не знімається — через це автопрокрутка зупинялась назавжди. */
+    var hasHover = window.matchMedia('(hover: hover)').matches;
+    if (hasHover) {
+      box.addEventListener('mouseenter', function () { paused = true; });
+      box.addEventListener('mouseleave', function () { paused = false; });
+    }
     setInterval(function () { if (!paused) show(idx + 1); }, 5000);
   } else {
     setInterval(function () { show(idx + 1); }, 5000);
