@@ -254,7 +254,7 @@
   .amenity-row:hover img { transform: scale(1.10); }
   .amenity-row img { width: 25px; height: 25px; flex: none; margin-top: 0; }
   .amenity-row span { font-family: 'Golos Text', sans-serif; font-size: clamp(13.13px, calc(11.108px + 0.263vw), 15.32px); line-height: 1.45; color: #fff; }
-  #photo-slider { position: relative; overflow: hidden; border-radius: 0; flex: none; }
+  #photo-slider { position: relative; overflow: hidden; border-radius: 0; flex: none; width: 100%; }
   #amenities-title-top { display: none; }
   .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
   .slide-img.active { opacity: 1; }
@@ -1186,7 +1186,7 @@
     </div>
     <div class="col-3">
     <div id="photo-slider">
-      <img class="slide-img active" src="images/In_01.png" alt="Спальня будиночка зі смарагдовими стінами та двоспальним ліжком" decoding="async"><img class="slide-imgNone" src="images/In_02.png" alt="Інтер’єр будиночка з панорамним вікном у зелень" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_03.png" alt="Кухонна зона з кавомашиною, чайником і мікрохвильовкою" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_04.png" alt="Ванна кімната з душем, феном і косметичними наборами" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_05.png" alt="Зона відпочинку всередині будиночка" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_06.png" alt="Двоспальне ліжко з видом на природу" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_07.jpg" alt="Інтер’єр будиночка «Темп Дніпра» — кухня та обідня зона" loading="lazy" decoding="async"><img class="slide-imgNone" src="images/In_08.png" alt="Затишний куточок будиночка з кондиціонером" loading="lazy" decoding="async">
+      <img class="slide-img active" src="images/In_01.png" alt="Спальня будиночка зі смарагдовими стінами та двоспальним ліжком" decoding="async"><img class="slide-img" src="images/In_02.png" alt="Інтер’єр будиночка з панорамним вікном у зелень" loading="lazy" decoding="async"><img class="slide-img" src="images/In_03.png" alt="Кухонна зона з кавомашиною, чайником і мікрохвильовкою" loading="lazy" decoding="async"><img class="slide-img" src="images/In_04.png" alt="Ванна кімната з душем, феном і косметичними наборами" loading="lazy" decoding="async"><img class="slide-img" src="images/In_05.png" alt="Зона відпочинку всередині будиночка" loading="lazy" decoding="async"><img class="slide-img" src="images/In_06.png" alt="Двоспальне ліжко з видом на природу" loading="lazy" decoding="async"><img class="slide-img" src="images/In_07.jpg" alt="Інтер’єр будиночка «Темп Дніпра» — кухня та обідня зона" loading="lazy" decoding="async"><img class="slide-img" src="images/In_08.png" alt="Затишний куточок будиночка з кондиціонером" loading="lazy" decoding="async">
       <button class="slide-arrow prev" aria-label="Попереднє фото">&#8249;</button>
       <button class="slide-arrow next" aria-label="Наступне фото">&#8250;</button>
       <div id="slide-dots"><span class="slide-dot active"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span><span class="slide-dot"></span></div>
@@ -1849,11 +1849,11 @@
       var hc = card.getBoundingClientRect().height;
       if (hc > 0) slider.style.height = hc + 'px';
     } else {
+      /* десктоп: слайдер на всю ширину колонки й рівно на висоту картки */
+      slider.style.width = '';
+      slider.style.height = '';
       var h = card.getBoundingClientRect().height;
-      if (h > 0) {
-        slider.style.width = h + 'px';
-        slider.style.height = h + 'px';
-      }
+      if (h > 0) slider.style.height = h + 'px';
     }
   }
   syncSliderSize();
