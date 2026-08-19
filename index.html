@@ -240,6 +240,9 @@
   #amenities-wrap.row { align-items: stretch; }
   #amenities-wrap .col-9 { display: flex; padding-right: 0; }
   #amenities-wrap .col-3 { display: flex; justify-content: flex-end; padding-left: 0; }
+  /* десктоп: дві третини — картка, одна третина — квадратний слайдер */
+  #amenities-wrap .col-9 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+  #amenities-wrap .col-3 { flex: 0 0 33.3333%; max-width: 33.3333%; }
   #amenities-card { display: flex; flex-direction: column; flex: 1; min-width: 0; width: 100%; 
     background:
       linear-gradient(155deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 48%),
@@ -1821,6 +1824,7 @@
   var slider = document.getElementById('photo-slider');
   function syncSliderSize() {
     if (!card || !slider) return;
+    card.style.minHeight = '';
     if (window.innerWidth <= 540) {
       slider.style.width = '';
       slider.style.height = '';
@@ -1849,11 +1853,16 @@
       var hc = card.getBoundingClientRect().height;
       if (hc > 0) slider.style.height = hc + 'px';
     } else {
-      /* десктоп: слайдер на всю ширину колонки й рівно на висоту картки */
+      /* десктоп: слайдер квадратний на всю ширину своєї колонки,
+         картка підтягується до тієї ж висоти */
       slider.style.width = '';
       slider.style.height = '';
-      var h = card.getBoundingClientRect().height;
-      if (h > 0) slider.style.height = h + 'px';
+      card.style.minHeight = '';
+      var w = slider.getBoundingClientRect().width;
+      if (w > 0) {
+        slider.style.height = w + 'px';
+        card.style.minHeight = w + 'px';
+      }
     }
   }
   syncSliderSize();
